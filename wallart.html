@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wall Art 3D • M3DV Parts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0a0a0a; --fg:#bfbfbf; --brand:#00ffc8; --muted:#8a8a8a; --card:#111;
+      --accent:#0dd3a8; --danger:#ff6666;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Outfit,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+         background:var(--bg); color:var(--fg)}
+    header,footer{padding:24px; text-align:center}
+    header h1{color:var(--brand); font-size:clamp(22px,4vw,34px); margin:6px 0 4px}
+    header p{margin:0;color:var(--muted)}
+    .wrap{max-width:1100px; margin:0 auto; padding:16px}
+    .notice{background:#0e0e0e; border:1px solid #1f1f1f; padding:14px 16px; border-radius:12px; margin:8px 0 18px}
+    .price-badges{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+    .badge{background:#0f1b18; color:var(--brand); border:1px solid #113c34; padding:6px 10px; border-radius:999px; font-size:13px}
+    .grid{display:grid; gap:14px; grid-template-columns:repeat( auto-fit, minmax(220px,1fr) );}
+    .card{background:var(--card); border:1px solid #1a1a1a; border-radius:16px; overflow:hidden; display:flex; flex-direction:column}
+    .imgbox{aspect-ratio:1/1; background:#0e0e0e; display:grid; place-items:center}
+    .imgbox img{max-width:92%; max-height:92%; object-fit:contain; filter:drop-shadow(0 2px 6px #000)}
+    .card h3{font-size:18px; margin:12px 14px 2px}
+    .card p{margin:0 14px 10px; color:var(--muted); font-size:14px; min-height:38px}
+    .row{display:flex; align-items:center; gap:10px; padding:0 14px 14px}
+    .qty{display:flex; gap:6px; align-items:center}
+    .qty input{width:56px; padding:8px 10px; background:#0b0b0b; color:var(--fg); border:1px solid #1e1e1e; border-radius:10px}
+    .btn{cursor:pointer; border:1px solid #12493f; background:#0f1b18; color:var(--brand);
+         padding:10px 12px; border-radius:12px; font-weight:600; transition:.15s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.alt{border-color:#2a2a2a; background:#121212; color:#d0d0d0}
+    .toolbar{position:sticky; bottom:0; background:rgba(10,10,10,.9); border-top:1px solid #1b1b1b; backdrop-filter: blur(4px);}
+    .toolbar .wrap{display:flex; gap:10px; align-items:center; justify-content:space-between}
+    .tot{font-weight:600; color:#e9fdfa}
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
+    .small{font-size:12px; color:#9a9a9a}
+    a{color:var(--brand); text-decoration:none}
+    .pill{padding:4px 8px; border:1px solid #2a2a2a; border-radius:999px; font-size:12px; color:#bbb}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="pill">Collezione</div>
+    <h1>Wall Art 3D – Silhouette in PLA</h1>
+    <p>Decorazioni leggere in stampa 3D (PLA nero, spessore ~2&nbsp;mm – adesivo removibile incluso).</p>
+    <div class="price-badges">
+      <div class="badge">6 € cad. + spedizione</div>
+      <div class="badge">11 € cad. spedizione inclusa (Italia)</div>
+    </div>
+    <div class="notice small">Nota: Evitiamo personaggi protetti da copyright nelle vendite pubbliche.
+      Le <b>opere originali</b> qui sotto sono acquistabili. Per richieste personalizzate → <a href="#contatti">contatti</a>.
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="grid" id="prodotti">
+    <!-- 1. Biker su corona -->
+    <article class="card" data-name="Biker su corona" data-id="biker-corona">
+      <div class="imgbox">
+        <img src="img/wallart/biker-corona.jpg" alt="Biker su corona MTB silhouette">
+      </div>
+      <h3>Biker su corona</h3>
+      <p>Silhouette MTB su corona – perfetta per garage o camera sportiva.</p>
+      <div class="row">
+        <div class="qty">
+          <label for="q-biker">Qtà</label>
+          <input id="q-biker" type="number" min="1" value="1">
+        </div>
+        <button class="btn" onclick="addItem('biker-corona')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('biker-corona',11)">Subito 11€</button>
+      </div>
+    </article>
+
+    <!-- 2. Luna mandala -->
+    <article class="card" data-name="Luna mandala" data-id="luna-mandala">
+      <div class="imgbox">
+        <img src="img/wallart/luna-mandala.jpg" alt="Luna mandala silhouette">
+      </div>
+      <h3>Luna mandala</h3>
+      <p>Disegno lunare con motivo mandala; elegante e minimale.</p>
+      <div class="row">
+        <div class="qty"><label for="q-luna">Qtà</label><input id="q-luna" type="number" min="1" value="1"></div>
+        <button class="btn" onclick="addItem('luna-mandala')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('luna-mandala',11)">Subito 11€</button>
+      </div>
+    </article>
+
+    <!-- 3. Triangolo Montagne -->
+    <article class="card" data-name="Triangolo Montagne" data-id="tri-monti">
+      <div class="imgbox">
+        <img src="img/wallart/triangolo-montagne.jpg" alt="Triangolo con montagne">
+      </div>
+      <h3>Triangolo Montagne</h3>
+      <p>Paisley alpino stilizzato in triangolo.</p>
+      <div class="row">
+        <div class="qty"><label for="q-tri">Qtà</label><input id="q-tri" type="number" min="1" value="1"></div>
+        <button class="btn" onclick="addItem('tri-monti')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('tri-monti',11)">Subito 11€</button>
+      </div>
+    </article>
+
+    <!-- 4. Skyline Montagne -->
+    <article class="card" data-name="Skyline Montagne" data-id="sky-monti">
+      <div class="imgbox"><img src="img/wallart/skyline-montagne.jpg" alt="Linea montagne"></div>
+      <h3>Skyline Montagne</h3>
+      <p>Linea montuosa decorativa – ottima sopra la scrivania.</p>
+      <div class="row">
+        <div class="qty"><label for="q-sky">Qtà</label><input id="q-sky" type="number" min="1" value="1"></div>
+        <button class="btn" onclick="addItem('sky-monti')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('sky-monti',11)">Subito 11€</button>
+      </div>
+    </article>
+
+    <!-- 5. Lupo -->
+    <article class="card" data-name="Lupo" data-id="lupo">
+      <div class="imgbox"><img src="img/wallart/lupo.jpg" alt="Lupo silhouette"></div>
+      <h3>Lupo</h3>
+      <p>Profilo di lupo in stile ornamentale.</p>
+      <div class="row">
+        <div class="qty"><label for="q-lupo">Qtà</label><input id="q-lupo" type="number" min="1" value="1"></div>
+        <button class="btn" onclick="addItem('lupo')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('lupo',11)">Subito 11€</button>
+      </div>
+    </article>
+
+    <!-- 6. Albero della Vita (yin/yang) -->
+    <article class="card" data-name="Albero della Vita" data-id="albero-vita">
+      <div class="imgbox"><img src="img/wallart/albero-vita.jpg" alt="Albero della vita yin yang"></div>
+      <h3>Albero della Vita</h3>
+      <p>Simbolo yin/yang con albero e radici.</p>
+      <div class="row">
+        <div class="qty"><label for="q-albero">Qtà</label><input id="q-albero" type="number" min="1" value="1"></div>
+        <button class="btn" onclick="addItem('albero-vita')">Aggiungi</button>
+        <button class="btn alt" onclick="buyNow('albero-vita',11)">Subito 11€</button>
+      </div>
+    </article>
+  </section>
+</main>
+
+<!-- Barra carrello/azioni -->
+<div class="toolbar">
+  <div class="wrap">
+    <div>
+      <strong>Selezionati:</strong> <span id="count">0</span> pcs
+      <span class="small">— prezzo base: 6 € cad. (+ sped.) oppure 11 € cad. sped. inclusa</span>
+    </div>
+    <div class="actions">
+      <button class="btn" onclick="openWhatsapp()">Ordina su WhatsApp</button>
+      <button class="btn alt" onclick="openEmail()">Ordina via Email</button>
+    </div>
+  </div>
+</div>
+
+<footer id="contatti">
+  <div class="wrap small">
+    <div>Materiale standard: PLA nero (≈2&nbsp;mm). Altri colori su richiesta.</div>
+    <div>Per preventivi personalizzati invia le misure o l’immagine in SVG/PNG.</div>
+    <div style="margin-top:8px">© 2025 M3DV Parts</div>
+  </div>
+</footer>
+
+<script>
+  // Configura qui i tuoi contatti
+  const PHONE = "39XXXXXXXXXX"; // TODO: inserisci numero WhatsApp in formato internazionale, es. 39333XXXXXXX
+  const EMAIL = "ordini@m3dvparts.it"; // TODO: inserisci email
+
+  // Mappa ID => nome leggibile
+  const MAP = {
+    "biker-corona":"Biker su corona",
+    "luna-mandala":"Luna mandala",
+    "tri-monti":"Triangolo Montagne",
+    "sky-monti":"Skyline Montagne",
+    "lupo":"Lupo",
+    "albero-vita":"Albero della Vita"
+  };
+
+  const cart = new Map();
+
+  function addItem(id){
+    const card = document.querySelector(`[data-id="${id}"]`);
+    const input = card.querySelector('input[type="number"]');
+    const qty = Math.max(1, parseInt(input.value || "1",10));
+    const prev = cart.get(id)||0;
+    cart.set(id, prev+qty);
+    updateCount();
+  }
+
+  function updateCount(){
+    let n=0;
+    cart.forEach(v=>n+=v);
+    document.getElementById('count').textContent = n;
+  }
+
+  function buildMessage(){
+    if(cart.size===0) return "Ciao! Vorrei informazioni sui Wall Art 3D.";
+    const righe=[];
+    cart.forEach((q,id)=> righe.push(`- ${MAP[id]} x ${q}`));
+    return `Ciao! Vorrei ordinare i seguenti Wall Art 3D:\n${righe.join("\n")}\n\nOpzione prezzo: 6€/cad + spedizione OPPURE 11€/cad spedizione inclusa.\nIndirizzo di spedizione:\nMetodo di pagamento preferito:`;
+  }
+
+  function openWhatsapp(){
+    const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(buildMessage())}`;
+    window.open(url, '_blank');
+  }
+  function openEmail(){
+    const subject = encodeURIComponent("Ordine Wall Art 3D");
+    const body = encodeURIComponent(buildMessage());
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+  }
+  function buyNow(id,price){
+    cart.clear();
+    cart.set(id,1);
+    updateCount();
+    openWhatsapp();
+  }
+</script>
+</body>
+</html>
