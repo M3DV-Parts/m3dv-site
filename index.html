@@ -4,87 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>M3DV Solution – Stampa 3D personalizzata</title>
-  <meta name="description" content="M3DV Solution produce componenti e oggetti su misura con stampa 3D. Wall-Art decorative, accessori auto ParaPark 3D e molto altro. Realizzato in Abruzzo." />
+  <meta name="description" content="M3DV Solution produce componenti e oggetti su misura con stampa 3D. Wall-Art decorative, ricambi personalizzati, ParaPark 3D. Realizzato in Abruzzo.">
   <style>
-    :root {
-      --bg: #f7f9fb; --card: #fff; --ink: #111; --muted: #667185;
-      --ok: #25d366; --blue: #0078d7; --accent: #0a66c2;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-    }
-    header {
-      background: rgba(255, 255, 255, 0.85);
-      border-bottom: 1px solid #e5e7eb;
-      backdrop-filter: saturate(140%) blur(8px);
-      position: sticky; top: 0; z-index: 10;
-    }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 14px 18px; }
-    nav.menu {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      justify-content: center; font-weight: 600;
-    }
-    nav.menu a {
-      color: var(--ink);
-      text-decoration: none;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-    nav.menu a:hover {
-      background: #e8eef9;
-      color: var(--accent);
-    }
-    .hero {
-      text-align: center;
-      padding: 60px 18px 40px;
-      background: linear-gradient(135deg,#dfe9ff,#f7f9ff);
-    }
-    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 22px; }
-    .btn {
-      display: inline-block;
-      padding: 10px 18px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      margin: 5px;
-      transition: background 0.2s ease;
-    }
-    .primary { background: var(--ok); color: #fff; }
-    .ghost { border: 1px solid var(--ok); color: var(--ok); }
-    .primary:hover { background: #1ec65a; }
-    .ghost:hover { background: var(--ok); color: #fff; }
-    section { padding: 40px 18px; }
-    h2 { text-align: center; margin-bottom: 20px; }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .card {
-      background: var(--card);
-      border-radius: 14px;
-      box-shadow: 0 3px 12px rgba(0,0,0,.08);
-      overflow: hidden;
-      transition: transform .2s ease;
-    }
-    .card:hover { transform: translateY(-3px); }
-    .card img { width: 100%; display: block; }
-    .card-body { padding: 16px; }
-    .muted { color: var(--muted); }
-    footer {
-      border-top: 1px solid #e5e7eb;
-      text-align: center;
-      color: var(--muted);
-      font-size: .9rem;
-      padding: 18px;
-    }
+    :root { --bg:#f7f9fb; --card:#fff; --ink:#111; --muted:#667185; --ok:#25d366; --blue:#0078d7; --accent:#0a66c2; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,sans-serif;background:var(--bg);color:var(--ink)}
+    header{background:rgba(255,255,255,.85);border-bottom:1px solid #e5e7eb;backdrop-filter:saturate(140%) blur(8px);position:sticky;top:0;z-index:10}
+    .wrap{max-width:1100px;margin:0 auto;padding:14px 18px}
+    nav.menu{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;font-weight:600}
+    nav.menu a{color:var(--ink);text-decoration:none;padding:6px 10px;border-radius:6px}
+    nav.menu a:hover{background:#e8eef9;color:var(--accent)}
+    .hero{text-align:center;padding:60px 18px 40px;background:linear-gradient(135deg,#dfe9ff,#f7f9ff)}
+    .hero h1{font-size:2.2rem;margin-bottom:10px}
+    .hero p{font-size:1.1rem;color:var(--muted);max-width:650px;margin:0 auto 22px}
+    .btn{display:inline-block;padding:10px 18px;border-radius:8px;font-weight:600;text-decoration:none;margin:5px;transition:.2s}
+    .primary{background:var(--ok);color:#fff}.primary:hover{background:#1ec65a}
+    .ghost{border:1px solid var(--ok);color:var(--ok)}.ghost:hover{background:var(--ok);color:#fff}
+    section{padding:40px 18px}
+    h2{text-align:center;margin-bottom:20px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;max-width:1000px;margin:0 auto}
+    .card{background:var(--card);border-radius:14px;box-shadow:0 3px 12px rgba(0,0,0,.08);overflow:hidden;transition:transform .2s}
+    .card:hover{transform:translateY(-3px)}
+    .card img{width:100%;display:block}
+    .card-body{padding:16px}
+    .muted{color:var(--muted)}
+    footer{border-top:1px solid #e5e7eb;text-align:center;color:var(--muted);font-size:.9rem;padding:18px}
+    /* form ricambi */
+    .field{display:block;margin:0 0 12px}
+    .field label{display:block;font-weight:600;margin-bottom:6px}
+    .field input,.field select,.field textarea{width:100%;padding:10px;border:1px solid #d8dee9;border-radius:10px}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
   </style>
 </head>
 <body>
@@ -94,6 +43,7 @@
     <nav class="menu">
       <a href="/">Home</a>
       <a href="/wallart.html">Wall-Art</a>
+      <a href="#ricambi">Ricambi</a>
       <a href="#materiali">Materiali</a>
       <a href="#contatti">Contatti</a>
       <a href="#parapark">ParaPark 3D</a>
@@ -103,27 +53,190 @@
 
 <section class="hero">
   <h1>Wall-Art 3D in evidenza</h1>
-  <p>Decorazioni da parete stampate in 3D con la Prusa MK4S, realizzate in ABS nero o su richiesta in altri materiali.<br>
-  25×20 cm – 10 € + spedizione (11 € tutto incluso)</p>
+  <p>Decorazioni da parete stampate in 3D con Prusa MK4S. 25×20 cm – 10 € + spedizione (11 € tutto incluso). Altre misure e materiali su richiesta.</p>
   <a href="/wallart.html" class="btn primary">Scopri la collezione</a>
   <a href="https://wa.me/393518689785" class="btn ghost">Ordina via WhatsApp</a>
+</section>
+
+<!-- TOP CATEGORIE (landing) -->
+<section id="top-categorie" style="padding:40px 18px;background:#fff;border-top:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
+  <div class="wrap">
+    <h2 style="margin:0 0 6px">Top categorie ricambi</h2>
+    <p style="text-align:center;color:#667185;margin:0 0 18px">Scegli una categoria: cerca su Printables/Thingiverse/MMF e poi incolla qui il link del modello.</p>
+
+    <div class="grid">
+      <!-- AUTO -->
+      <article class="card" data-cat="Auto" data-brand="Audi A3 2006" data-query="gancio portiera clip supporto griglia">
+        <img src="/IMAGE/cat_auto.jpg" alt="Ricambi Auto" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#dfe9ff,#f7f9ff)';">
+        <div class="card-body">
+          <h3>Auto</h3>
+          <p class="muted">Ganci, clip, cover, supporti, griglie…</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- MOTO -->
+      <article class="card" data-cat="Moto" data-brand="Yamaha MT-07" data-query="carenatura staffa supporto fermo clip">
+        <img src="/IMAGE/cat_moto.jpg" alt="Ricambi Moto" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#0f172a,#1f2937)';">
+        <div class="card-body">
+          <h3>Moto</h3>
+          <p class="muted">Fermagli, staffe, distanziali, cover…</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- CASA -->
+      <article class="card" data-cat="Casa / Arredo" data-brand="Ikea Kallax" data-query="gancio mensola ferma-anta pomello distanziale">
+        <img src="/IMAGE/cat_casa.jpg" alt="Casa e arredo" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#f5ebe0,#faf7f2)';">
+        <div class="card-body">
+          <h3>Casa / Arredo</h3>
+          <p class="muted">Ganci, pomelli, fermo-anta, adattatori…</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ELETTRODOMESTICI -->
+      <article class="card" data-cat="Elettrodomestici" data-brand="Dyson V8" data-query="holder supporto clip aggancio adattatore">
+        <img src="/IMAGE/cat_ele.jpg" alt="Elettrodomestici" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#e2efff,#f7fbff)';">
+        <div class="card-body">
+          <h3>Elettrodomestici</h3>
+          <p class="muted">Supporti a muro, clip e adattatori.</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- ELETTRONICA -->
+      <article class="card" data-cat="Elettronica" data-brand="Raspberry Pi 4" data-query="case supporto staffa cover guida cavo">
+        <img src="/IMAGE/cat_elettronica.jpg" alt="Elettronica" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#0a2540,#1b3b5a)';">
+        <div class="card-body">
+          <h3>Elettronica</h3>
+          <p class="muted">Case, cover, staffe e gestione cavi.</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- SPORT -->
+      <article class="card" data-cat="Sport / Tempo libero" data-brand="Bici MTB" data-query="porta-borraccia gancio supporto action cam">
+        <img src="/IMAGE/cat_sport.jpg" alt="Sport e tempo libero" onerror="this.style.display='none';this.closest('.card').style.background='linear-gradient(135deg,#c7ffd8,#eafff2)';">
+        <div class="card-body">
+          <h3>Sport / Tempo libero</h3>
+          <p class="muted">Supporti, agganci e accessori su misura.</p>
+          <div class="actions">
+            <a class="btn" style="background:#0a66c2;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'printables')">Printables</a>
+            <a class="btn" style="background:#333;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'thingiverse')">Thingiverse</a>
+            <a class="btn" style="background:#222;color:#fff" target="_blank" rel="noopener" onclick="openCatSearch(this,'mmf')">MMF</a>
+            <a class="btn primary" onclick="selectCategory(this)">Seleziona</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RICAMBI: form + ricerche -->
+<section id="ricambi" style="padding:40px 18px;background:#fff">
+  <div class="wrap">
+    <h2>Trova e ordina il tuo pezzo di ricambio</h2>
+    <p class="muted" style="text-align:center;margin-top:-8px">Incolla il link del modello (Printables/Thingiverse/MMF) o descrivici il pezzo. Ti rispondiamo con tempi/costi e materiali.</p>
+
+    <!-- Filtri -->
+    <div class="grid" style="align-items:end;margin-bottom:14px">
+      <div class="field">
+        <label for="cat">Categoria</label>
+        <select id="cat">
+          <option>Auto</option><option>Moto</option><option>Casa / Arredo</option>
+          <option>Elettrodomestici</option><option>Elettronica</option><option>Sport / Tempo libero</option><option>Altro</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="brand">Marca / Modello</label>
+        <input id="brand" type="text" placeholder="Es. Audi A3 2006, Dyson V8, Ikea Kallax">
+      </div>
+      <div class="field">
+        <label for="query">Cerca (parole chiave)</label>
+        <input id="query" type="text" placeholder="Es. gancio portiera, pomello, clip, supporto">
+      </div>
+    </div>
+
+    <!-- Link rapidi -->
+    <div class="actions" style="margin-bottom:12px">
+      <a id="btn-printables" class="btn" target="_blank" rel="noopener" style="background:#0a66c2;color:#fff">Cerca su Printables</a>
+      <a id="btn-thingiverse" class="btn" target="_blank" rel="noopener" style="background:#333;color:#fff">Cerca su Thingiverse</a>
+      <a id="btn-mymf" class="btn" target="_blank" rel="noopener" style="background:#222;color:#fff">Cerca su MyMiniFactory</a>
+    </div>
+
+    <!-- Form -->
+    <div style="background:#f7f9fb;border:1px solid #e5e7eb;border-radius:14px;padding:16px">
+      <div class="grid">
+        <div class="field" style="grid-column:1 / -1">
+          <label for="link">Link al modello (obbligatorio se disponibile)</label>
+          <input id="link" type="url" placeholder="Incolla il link del modello da Printables/Thingiverse/MMF">
+        </div>
+        <div class="field">
+          <label for="materiale">Materiale</label>
+          <select id="materiale">
+            <option>ABS (consigliato)</option><option>PLA</option><option>PETG</option><option>ASA</option><option>TPU (flessibile)</option><option>PC-Blend</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="colore">Colore</label>
+          <input id="colore" type="text" placeholder="Es. nero, bianco, trasparente">
+        </div>
+        <div class="field" style="grid-column:1 / -1">
+          <label for="note">Note (dimensioni, quantità, tolleranze…)</label>
+          <textarea id="note" rows="3" placeholder="Es. 2 pezzi, spessore 3 mm, tolleranza stretta, uso esterno"></textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a id="send-wa" class="btn primary" href="#">Invia su WhatsApp</a>
+        <a id="send-mail" class="btn ghost" href="#">Invia via Email</a>
+        <a id="pay-pp" class="btn" href="#" target="_blank" rel="noopener" style="background:#003087;color:#fff">Paga con PayPal</a>
+      </div>
+
+      <p class="muted" style="font-size:.9rem;margin-top:8px">* Se non trovi il link, descrivici il pezzo e invia foto via WhatsApp. Possiamo anche modellare da zero.</p>
+    </div>
+  </div>
 </section>
 
 <section id="materiali">
   <h2>Materiali disponibili</h2>
   <div class="grid">
-    <div class="card"><img src="/IMAGE/materiale_abs.jpg" alt="ABS"><div class="card-body"><strong>ABS</strong><p class="muted">Resistente al calore e urti, perfetto per oggetti decorativi e funzionali.</p></div></div>
-    <div class="card"><img src="/IMAGE/materiale_petg.jpg" alt="PETG"><div class="card-body"><strong>PETG</strong><p class="muted">Ottima resistenza chimica e meccanica, finitura lucida.</p></div></div>
-    <div class="card"><img src="/IMAGE/materiale_tpu.jpg" alt="TPU"><div class="card-body"><strong>TPU</strong><p class="muted">Flessibile e morbido, ideale per guarnizioni o cover antiurto.</p></div></div>
+    <div class="card"><img src="/IMAGE/materiale_abs.jpg" alt="ABS"><div class="card-body"><strong>ABS</strong><p class="muted">Resistente al calore e agli urti. Ottimo per uso quotidiano.</p></div></div>
+    <div class="card"><img src="/IMAGE/materiale_petg.jpg" alt="PETG"><div class="card-body"><strong>PETG</strong><p class="muted">Resistenza chimica e meccanica, finitura lucida.</p></div></div>
+    <div class="card"><img src="/IMAGE/materiale_tpu.jpg" alt="TPU"><div class="card-body"><strong>TPU</strong><p class="muted">Flessibile e morbido: guarnizioni, cover antiurto.</p></div></div>
   </div>
 </section>
 
 <section id="parapark">
   <h2>Progetto ParaPark 3D</h2>
   <div class="wrap">
-    <p>Un innovativo braccio protettivo per auto stampabile in 3D, progettato da <strong>MDV Solution</strong>.  
-       Si ancora alla portiera e si estende per proteggere la carrozzeria dalle sportellate.  
-       Attualmente in sviluppo – <em>Work in progress</em>.</p>
+    <p>Braccio protettivo per auto stampabile in 3D, progettato da <strong>MDV Solution</strong>. Si ancora alla portiera e si estende per proteggere la carrozzeria dalle sportellate. <em>Work in progress</em>.</p>
   </div>
 </section>
 
@@ -138,6 +251,90 @@
 <footer>
   © M3DV Parts — MDV Solution · <a href="https://wa.me/393518689785">+39 351 868 9785</a> · <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
 </footer>
+
+<script>
+  // Contatti
+  const WA = "393518689785";
+  const MAIL = "mdvsolutionpro@gmail.com";
+
+  // PayPal (segnaposto: sostituisci con il tuo link PayPal.me o Payment Link)
+  const PAYPAL_LINK = "https://www.paypal.com/paypalme/TUONOME/10"; 
+  const payBtn = document.getElementById('pay-pp'); if (payBtn) payBtn.href = PAYPAL_LINK;
+
+  // Elementi form ricambi
+  const cat = document.getElementById('cat');
+  const brand = document.getElementById('brand');
+  const query = document.getElementById('query');
+  const linkEl = document.getElementById('link');
+  const materiale = document.getElementById('materiale');
+  const colore = document.getElementById('colore');
+  const note = document.getElementById('note');
+
+  const btnPrint = document.getElementById('btn-printables');
+  const btnThing = document.getElementById('btn-thingiverse');
+  const btnMMF = document.getElementById('btn-mymf');
+
+  function enc(s){ return encodeURIComponent((s||'').trim()); }
+  function buildSearchQuery(){
+    const parts=[]; if(cat?.value)parts.push(cat.value); if(brand?.value)parts.push(brand.value); if(query?.value)parts.push(query.value);
+    return parts.join(' ');
+  }
+  function updateSearchLinks(){
+    const q = enc(buildSearchQuery());
+    if(btnPrint) btnPrint.href = `https://www.printables.com/search/models?q=${q}`;
+    if(btnThing) btnThing.href = `https://www.thingiverse.com/search?q=${q}&type=things`;
+    if(btnMMF)   btnMMF.href   = `https://www.myminifactory.com/search/?query=${q}`;
+  }
+  [cat,brand,query].forEach(el=>el&&el.addEventListener('input',updateSearchLinks));
+  updateSearchLinks();
+
+  // Invio WA/Email
+  document.getElementById('send-wa').addEventListener('click', (e)=>{
+    e.preventDefault();
+    const msg = `Richiesta ricambio%0A`+
+      `Categoria: ${enc(cat.value)}%0A`+
+      `Marca/Modello: ${enc(brand.value)}%0A`+
+      `Ricerca: ${enc(query.value)}%0A`+
+      `Link modello: ${enc(linkEl.value)}%0A`+
+      `Materiale: ${enc(materiale.value)}%0A`+
+      `Colore: ${enc(colore.value)}%0A`+
+      `Note: ${enc(note.value)}`;
+    window.location.href = `https://wa.me/${WA}?text=${msg}`;
+  });
+  document.getElementById('send-mail').addEventListener('click',(e)=>{
+    e.preventDefault();
+    const subject = enc(`Richiesta ricambio – ${cat.value} – ${brand.value}`);
+    const body = `Categoria: ${cat.value}%0A`+
+      `Marca/Modello: ${brand.value}%0A`+
+      `Ricerca: ${query.value}%0A`+
+      `Link modello: ${linkEl.value}%0A`+
+      `Materiale: ${materiale.value}%0A`+
+      `Colore: ${colore.value}%0A`+
+      `Note: ${note.value}`;
+    window.location.href = `mailto:${MAIL}?subject=${subject}&body=${body}`;
+  });
+
+  // Funzioni top-categorie
+  function encQ(s){ return encodeURIComponent((s||'').trim()); }
+  function buildQFromCard(card){
+    const c=card.dataset.cat||'', br=card.dataset.brand||'', qu=card.dataset.query||'';
+    return `${c} ${br} ${qu}`.trim();
+  }
+  function openCatSearch(el, where){
+    const card = el.closest('article.card'); const q = encQ(buildQFromCard(card));
+    if(where==='printables') window.open(`https://www.printables.com/search/models?q=${q}`,'_blank');
+    if(where==='thingiverse') window.open(`https://www.thingiverse.com/search?q=${q}&type=things`,'_blank');
+    if(where==='mmf') window.open(`https://www.myminifactory.com/search/?query=${q}`,'_blank');
+  }
+  function selectCategory(el){
+    const card = el.closest('article.card');
+    if(cat) cat.value = card.dataset.cat || '';
+    if(brand) brand.value = card.dataset.brand || '';
+    if(query) query.value = card.dataset.query || '';
+    updateSearchLinks();
+    document.getElementById('ricambi')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+</script>
 
 </body>
 </html>
