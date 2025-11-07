@@ -1,268 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>M3DV Parts | 3D Custom Workshop</title>
-  <meta name="description" content="Stampa 3D professionale su misura: parti funzionali in PLA, PETG, TPU, ASA. Progetto ParaPark 3D in evidenza. Spedizione in tutta Italia." />
-  <meta name="theme-color" content="#0a0a0a" />
+  <title>M3DV Solution – Stampa 3D personalizzata</title>
+  <meta name="description" content="M3DV Solution produce componenti e oggetti su misura con stampa 3D. Wall-Art decorative, accessori auto ParaPark 3D e molto altro. Realizzato in Abruzzo." />
   <style>
-    :root{
-      --bg:#0a0a0a; --panel:#121212; --muted:#a8b0b2;
-      --brand:#00ffc8; --accent:#38bdf8; --error:#ff6b6b;
-      --radius:16px; --pad:16px; --max:1100px;
+    :root {
+      --bg: #f7f9fb; --card: #fff; --ink: #111; --muted: #667185;
+      --ok: #25d366; --blue: #0078d7; --accent: #0a66c2;
     }
-    *{box-sizing:border-box} html,body{margin:0}
-    body{background:var(--bg); color:#e8f6f2; font:16px/1.5 system-ui,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:var(--max); margin-inline:auto; padding:24px var(--pad)}
-    /* Navbar */
-    header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(6px); background:rgba(10,10,10,.85); border-bottom:1px solid #1c1c1c}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px; color:var(--brand)}
-    .brand .logo{font-size:22px}
-    .menu{display:flex; gap:18px; align-items:center}
-    .menu a{opacity:.85} .menu a:hover{opacity:1; color:var(--accent)}
-    .hamb{display:none; border:1px solid #222; background:#161616; padding:8px 10px; border-radius:10px}
-    /* Hero */
-    .hero{padding:56px var(--pad) 28px; background:radial-gradient(1200px 280px at 50% -40px,#0e2333 0%,transparent 60%)}
-    .h-title{font-size:28px; font-weight:900; margin:0 0 10px}
-    .h-sub{color:var(--muted); margin:0 0 20px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{padding:12px 16px; border-radius:14px; border:1px solid #1f2a2d; background:#111; color:#e8f6f2}
-    .btn.primary{background:linear-gradient(135deg,var(--brand),#3cffdc); color:#051d18; border:none; font-weight:700}
-    .btn.ghost{background:#121212}
-    /* Sections */
-    section{scroll-margin-top:84px}
-    .card{background:var(--panel); border:1px solid #1f2a2d; border-radius:var(--radius); padding:18px}
-    .grid{display:grid; gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    .grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .tag{display:inline-flex; gap:6px; align-items:center; padding:6px 10px; border-radius:999px; background:#0f1a19; border:1px solid #17302d; color:var(--brand); font-size:12px}
-    .muted{color:var(--muted)}
-    .pill{display:inline-block; background:#0f1520; border:1px solid #1b2840; color:#acd7ff; padding:6px 10px; border-radius:999px; font-size:12px}
-    .kpis{display:flex; gap:12px; flex-wrap:wrap; margin-top:6px}
-    /* Products */
-    .prod{display:flex; gap:14px; align-items:flex-start}
-    .ico{width:56px; height:56px; border-radius:12px; background:#0f1520; display:grid; place-items:center; font-size:22px; border:1px solid #1c2740}
-    .prod h3{margin:0 0 4px; font-size:18px}
-    .prod p{margin:0; color:var(--muted); font-size:14px}
-    /* ParaPark highlight */
-    .pp{display:grid; gap:16px; align-items:center; grid-template-columns:1.1fr .9fr}
-    .pp .illu{aspect-ratio:4/3; border-radius:16px; background:
-      linear-gradient(145deg,#0f1a19 0 40%,#132b47 100%);
-      border:1px solid #17302d; display:grid; place-items:center; font-size:80px}
-    .pp ul{margin:0; padding-left:18px}
-    /* Contact */
-    form{display:grid; gap:10px}
-    input,textarea{background:#0f1416; border:1px solid #202a2c; color:#e8f6f2; padding:12px 14px; border-radius:12px; width:100%}
-    textarea{min-height:120px; resize:vertical}
-    .note{font-size:12px; color:#7d8a8d}
-    footer{border-top:1px solid #1c1c1c; margin-top:32px}
-    .copy{color:#7c8b8f; font-size:13px; padding:18px 0}
-    /* Responsive */
-    @media (max-width:960px){
-      .grid.cols-3{grid-template-columns:1fr}
-      .grid.cols-2{grid-template-columns:1fr}
-      .pp{grid-template-columns:1fr}
-      .menu{display:none}
-      .menu.open{display:flex; flex-direction:column; padding:12px; background:#0e0e0e; border:1px solid #1c1c1c; border-radius:14px}
-      .hamb{display:inline-block}
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      background: rgba(255, 255, 255, 0.85);
+      border-bottom: 1px solid #e5e7eb;
+      backdrop-filter: saturate(140%) blur(8px);
+      position: sticky; top: 0; z-index: 10;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 14px 18px; }
+    nav.menu {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      justify-content: center; font-weight: 600;
+    }
+    nav.menu a {
+      color: var(--ink);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    nav.menu a:hover {
+      background: #e8eef9;
+      color: var(--accent);
+    }
+    .hero {
+      text-align: center;
+      padding: 60px 18px 40px;
+      background: linear-gradient(135deg,#dfe9ff,#f7f9ff);
+    }
+    .hero h1 { font-size: 2.2rem; margin-bottom: 10px; }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 22px; }
+    .btn {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin: 5px;
+      transition: background 0.2s ease;
+    }
+    .primary { background: var(--ok); color: #fff; }
+    .ghost { border: 1px solid var(--ok); color: var(--ok); }
+    .primary:hover { background: #1ec65a; }
+    .ghost:hover { background: var(--ok); color: #fff; }
+    section { padding: 40px 18px; }
+    h2 { text-align: center; margin-bottom: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.08);
+      overflow: hidden;
+      transition: transform .2s ease;
+    }
+    .card:hover { transform: translateY(-3px); }
+    .card img { width: 100%; display: block; }
+    .card-body { padding: 16px; }
+    .muted { color: var(--muted); }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      padding: 18px;
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><span class="logo">🧱</span> <span>M3DV Parts</span></div>
-      <nav class="menu" id="menu">
-        <a href="#shop">Shop</a>
-        <a href="#parapark">ParaPark</a>
-        <a href="#materiali">Materiali</a>
-        <a href="#contatti">Contatti</a>
- <a class="btn" href="/wallart.html">🖼️ Wall-Art</a>
-      </nav>
-      <button class="hamb" id="hamb" aria-label="menu">☰</button>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <div class="wrap hero">
-    <p class="tag">Beta Live</p>
-    <h1 class="h-title">Stampa 3D su misura, veloce e precisa</h1>
-    <p class="h-sub">Prototipi, ricambi, accessori auto, cover protettive in **TPU** e parti tecniche in **PETG/ASA**.  
-      La nostra novità: <strong>ParaPark 3D</strong> – protezione porte auto a srotolamento.</p>
-    <div class="cta">
-      <a class="btn primary" href="#parapark">Scopri ParaPark 3D</a>
-      <a class="btn ghost" href="#shop">Ordina una stampa</a>
-      <a class="btn ghost" href="https://wa.me/393518689785" target="_blank">WhatsApp</a>
-    </div>
-    <div class="kpis">
-      <span class="pill">⏱️ Lead time 24-72h</span>
-      <span class="pill">📦 Spediamo in tutta Italia</span>
-      <span class="pill">🔁 Piccole serie</span>
-    </div>
+<header>
+  <div class="wrap">
+    <nav class="menu">
+      <a href="/">Home</a>
+      <a href="/wallart.html">Wall-Art</a>
+      <a href="#materiali">Materiali</a>
+      <a href="#contatti">Contatti</a>
+      <a href="#parapark">ParaPark 3D</a>
+    </nav>
   </div>
+</header>
 
-  <!-- SHOP -->
-  <section id="shop" class="wrap">
-    <h2>Catalogo rapido</h2>
-    <p class="muted">Oggetti che stampiamo facilmente con la Prusa MK4S. Personalizzabili su richiesta.</p>
-    <div class="grid cols-3">
-      <div class="card prod">
-        <div class="ico">🧩</div>
-        <div>
-          <h3>Clip & ganci universali</h3>
-          <p>Set personalizzato per auto, bici, zaini. Materiale: PETG/ASA.</p>
-        </div>
-      </div>
-      <div class="card prod">
-        <div class="ico">📱</div>
-        <div>
-          <h3>Cover protettive TPU</h3>
-          <p>TPU 95A “urto-assorbente”. Grip alto. Colore: bianco/nero.</p>
-        </div>
-      </div>
-      <div class="card prod">
-        <div class="ico">🚲</div>
-        <div>
-          <h3>Supporti action-cam/bici</h3>
-          <p>Attacchi modulari, viti metalliche, tolleranze precise.</p>
-        </div>
-      </div>
-      <div class="card prod">
-        <div class="ico">🚗</div>
-        <div>
-          <h3>Organizer abitacolo</h3>
-          <p>Vaschette, distanziatori, fermacinture. PETG anti-calore.</p>
-        </div>
-      </div>
-      <div class="card prod">
-        <div class="ico">🔧</div>
-        <div>
-          <h3>Gommini/antivibrazione</h3>
-          <p>TPU elastico: piedini, bumpers, protezioni urto.</p>
-        </div>
-      </div>
-      <div class="card prod">
-        <div class="ico">🏠</div>
-        <div>
-          <h3>Accessori casa</h3>
-          <p>Appendini, distanziali, copri-cavi, tappi su misura.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <h1>Wall-Art 3D in evidenza</h1>
+  <p>Decorazioni da parete stampate in 3D con la Prusa MK4S, realizzate in ABS nero o su richiesta in altri materiali.<br>
+  25×20 cm – 10 € + spedizione (11 € tutto incluso)</p>
+  <a href="/wallart.html" class="btn primary">Scopri la collezione</a>
+  <a href="https://wa.me/393518689785" class="btn ghost">Ordina via WhatsApp</a>
+</section>
 
-  <!-- PARAPARK -->
-  <section id="parapark" class="wrap">
-    <div class="card pp">
-      <div>
-        <span class="tag">In evidenza</span>
-        <h2 style="margin:10px 0 6px">ParaPark 3D – Protezione portiera a srotolamento</h2>
-        <p class="muted">Modulo protettivo a nastro: si srotola dal rullo verticale lato cerniere (13 cm), nastro TPU/PETG alto 9 cm che abbraccia 3/4 della portiera, agganci interno-porta. Progetto **WIP**.</p>
-        <ul class="muted">
-          <li>Montaggio senza fori; ganci sugli attacchi interni porta</li>
-          <li>Rivestimento sostituibile (ricambi)</li>
-          <li>Compatibile con più modelli auto</li>
-        </ul>
-        <div class="cta" style="margin-top:10px">
-          <a class="btn primary" href="#contatti">Prenota anteprima</a>
-          <a class="btn" href="#materiali">Materiali</a>
-        </div>
-      </div>
-      <div class="illu" aria-hidden="true">🧷</div>
-    </div>
-  </section>
+<section id="materiali">
+  <h2>Materiali disponibili</h2>
+  <div class="grid">
+    <div class="card"><img src="/IMAGE/materiale_abs.jpg" alt="ABS"><div class="card-body"><strong>ABS</strong><p class="muted">Resistente al calore e urti, perfetto per oggetti decorativi e funzionali.</p></div></div>
+    <div class="card"><img src="/IMAGE/materiale_petg.jpg" alt="PETG"><div class="card-body"><strong>PETG</strong><p class="muted">Ottima resistenza chimica e meccanica, finitura lucida.</p></div></div>
+    <div class="card"><img src="/IMAGE/materiale_tpu.jpg" alt="TPU"><div class="card-body"><strong>TPU</strong><p class="muted">Flessibile e morbido, ideale per guarnizioni o cover antiurto.</p></div></div>
+  </div>
+</section>
 
-  <!-- MATERIALI -->
-  <section id="materiali" class="wrap">
-    <h2>Materiali & impianto</h2>
-    <div class="grid cols-2">
-      <div class="card">
-        <h3>PLA / PLA-Tough</h3>
-        <p class="muted">Economico e pulito per prototipi estetici. Migliore finitura.</p>
-        <h3>PETG</h3>
-        <p class="muted">Resistente al calore, ottimo per parti funzionali e outdoor.</p>
-        <h3>ASA</h3>
-        <p class="muted">Alternativa all’ABS, UV-resistente per esterni.</p>
-        <h3>TPU 95A</h3>
-        <p class="muted">Elastico anti-urto per cover, bumpers, guarnizioni.</p>
-      </div>
-      <div class="card">
-        <h3>Stampante</h3>
-        <p class="muted">Prusa **MK4S** calibrata; layer 0.2 mm (fino a 0.1), ugelli 0.4/0.6; area 250×210×220 mm.</p>
-        <h3>File accettati</h3>
-        <p class="muted">STL, 3MF. Possiamo modellare da foto/quote su richiesta.</p>
-        <div class="kpis">
-          <span class="pill">QA & prova montaggio</span>
-          <span class="pill">Imballo protetto</span>
-          <span class="pill">Tracking spedizione</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="parapark">
+  <h2>Progetto ParaPark 3D</h2>
+  <div class="wrap">
+    <p>Un innovativo braccio protettivo per auto stampabile in 3D, progettato da <strong>MDV Solution</strong>.  
+       Si ancora alla portiera e si estende per proteggere la carrozzeria dalle sportellate.  
+       Attualmente in sviluppo – <em>Work in progress</em>.</p>
+  </div>
+</section>
 
-  <!-- CONTATTI -->
-  <section id="contatti" class="wrap">
-    <h2>Richiedi un preventivo</h2>
-    <div class="grid cols-2">
-      <div class="card">
-        <form id="f">
-          <!-- TODO: sostituisci con il tuo endpoint Formspree -->
-          <input type="hidden" name="_subject" value="Nuova richiesta dal sito M3DV Parts" />
-          <label>Nome e Cognome
-            <input name="nome" required placeholder="Mario Rossi" />
-          </label>
-          <label>Email
-            <input type="email" name="email" required placeholder="mario@email.it" />
-          </label>
-          <label>Messaggio
-            <textarea name="messaggio" required placeholder="Descrivi il pezzo: materiale, dimensioni, quantità…"></textarea>
-          </label>
-          <button class="btn primary" type="submit">Invia richiesta</button>
-          <div class="note">Oppure scrivici su <a href="https://wa.me/393518689785" target="_blank">WhatsApp</a>.</div>
-          <div id="ok" class="note" style="display:none; color:var(--brand);">✅ Richiesta inviata! Ti rispondiamo a breve.</div>
-          <div id="ko" class="note" style="display:none; color:var(--error);">⚠️ Errore invio. Prova via WhatsApp.</div>
-        </form>
-      </div>
-      <div class="card">
-        <h3>Contatti rapidi</h3>
-        <p class="muted">Tel/WA: <a href="https://wa.me/393518689785" target="_blank">+39 333 818 4450</a><br>
-           Email: <a href="mailto:mdvsolutionpro@gmail.com">m3dv.parts@gmail.com</a></p>
-        <p class="muted">Sede operativa: Sulmona (AQ) – spediamo in tutta Italia.</p>
-        <div class="cta">
-          <a class="btn" href="mailto:mdvsolutionpro@gmail.com">✉️ Email</a>
-          <a class="btn" target="_blank" href="https://wa.me/393518689785">💬 WhatsApp</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="contatti">
+  <h2>Contatti</h2>
+  <p style="text-align:center">
+    WhatsApp: <a href="https://wa.me/393518689785">+39 351 868 9785</a><br>
+    Email: <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
+  </p>
+</section>
 
-  <footer class="wrap">
-    <div class="copy">© 2025 M3DV Parts — Tutti i diritti riservati • P.IVA / Info legali su richiesta</div>
-  </footer>
+<footer>
+  © M3DV Parts — MDV Solution · <a href="https://wa.me/393518689785">+39 351 868 9785</a> · <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
+</footer>
 
-  <script>
-    // Menu mobile
-    const hamb=document.getElementById('hamb'), menu=document.getElementById('menu');
-    hamb?.addEventListener('click',()=>menu.classList.toggle('open'));
-
-    // Form invio con Formspree (metti il tuo endpoint)
-    const form=document.getElementById('f');
-    form?.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const endpoint = "https://formspree.io/f/XXXXX"; // TODO: sostituisci
-      try{
-        const r=await fetch(endpoint,{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});
-        if(r.ok){form.reset(); document.getElementById('ok').style.display='block'; document.getElementById('ko').style.display='none';}
-        else{throw new Error('failed');}
-      }catch(err){
-        document.getElementById('ko').style.display='block';
-        document.getElementById('ok').style.display='none';
-      }
-    });
-  </script>
 </body>
 </html>
