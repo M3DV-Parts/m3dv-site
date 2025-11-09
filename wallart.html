@@ -1,127 +1,149 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wall Art 3D – MDV Revolution</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wall-Art 3D – M3DV Solution</title>
+  <meta name="description" content="Wall-Art 3D stampate in ABS 25×20 cm. 10 € + spedizione (oppure 11 € tutto incluso). Ordina via WhatsApp, Email o PayPal." />
+
+  <!-- Tema / lingua / routing -->
+  <script defer src="/settings.js"></script>
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      margin: 0;
-      padding: 20px;
-      text-align: center;
-    }
-    h1 {
-      color: #222;
-      font-size: 1.8em;
-      margin-bottom: 10px;
-    }
-    p {
-      color: #555;
-    }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      margin-top: 20px;
-    }
-    figure {
-      background: white;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-    figure:hover {
-      transform: scale(1.03);
-    }
-    figure img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    figcaption {
-      padding: 10px;
-    }
-    .ttl {
-      font-weight: bold;
-      color: #222;
-    }
-    .meta, .price {
-      font-size: 0.9em;
-      color: #555;
-    }
-    .btns {
-      margin-top: 10px;
-    }
-    .btn {
-      text-decoration: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-size: 0.85em;
-      display: inline-block;
-      margin: 3px;
-    }
-    .btn.primary {
-      background: #25d366;
-      color: white;
-    }
-    .btn.secondary {
-      background: #0078d7;
-      color: white;
-    }
+    :root { --bg:#f9fafb; --fg:#0f172a; --card:#ffffff; --muted:#64748b; --line:#e5e7eb; --ok:#25d366; --accent:#ef4444; --pp:#003087; }
+    html[data-theme="dark"] { --bg:#0b1220; --fg:#e5e7eb; --card:#0f172a; --muted:#94a3b8; --line:#1f2937; }
+
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;background:var(--bg);color:var(--fg);}
+
+    /* Header mini */
+    .top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+    html[data-theme="dark"] .top{background:rgba(11,18,32,.6)}
+    .wrap{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--fg);font-weight:900}
+    .badge{background:#ffd400;color:#0f172a;padding:2px 6px;border-radius:6px;font-weight:900}
+    .back{color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
+
+    /* Hero intro */
+    .hero{padding:20px 16px 6px;text-align:center}
+    .hero h1{margin:.2rem 0 .2rem;font-size:clamp(22px,3vw,30px)}
+    .hero p{margin:0;color:var(--muted)}
+
+    /* Gallery */
+    .gallery{padding:16px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.06);display:flex;flex-direction:column}
+    .thumb{aspect-ratio:1/1;object-fit:cover;width:100%;display:block;background:#1111}
+    .body{padding:12px 12px 10px}
+    .ttl{font-weight:700}
+    .price{color:var(--muted);font-size:.95rem;margin-top:2px}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .btn{display:inline-block;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:700;border:1px solid var(--line)}
+    .btn.wa{background:var(--ok);color:#fff;border-color:var(--ok)}
+    .btn.mail{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .btn.pp{background:var(--pp);color:#fff;border-color:var(--pp)}
+    .btn:hover{opacity:.92}
+
+    /* CTA finale */
+    .cta{max-width:1080px;margin:20px auto;padding:16px;border:1px dashed var(--line);border-radius:14px;text-align:center;background:linear-gradient(180deg,transparent,rgba(253,224,71,.12))}
+    html[data-theme="dark"] .cta{background:linear-gradient(180deg,transparent,rgba(253,224,71,.05))}
+    .cta .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+
+    footer{max-width:1080px;margin:18px auto 26px;padding:0 16px;color:var(--muted);text-align:center}
   </style>
 </head>
-
 <body>
-  <h1>Wall-Art 3D – MDV Revolution</h1>
-  <p>Stampe 3D decorative – 25×20 cm in ABS nero, 10 € + spedizione.<br>
-  Contattami su WhatsApp o Email per altri modelli o dimensioni personalizzate.</p>
 
-  <div class="gallery">
-
-    <!-- 1 -->
-    <figure>
-      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg" alt="Ciclista su montagna">
-      <figcaption>
-        <div class="ttl">Ciclista su montagna</div>
-        <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Ciclista%20su%20montagna">WhatsApp</a>
-          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Ciclista%20su%20montagna">Email</a>
-        </div>
-      </figcaption>
-    </figure>
-
-    <!-- 2 -->
-    <figure>
-      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg" alt="Luna decorata">
-      <figcaption>
-        <div class="ttl">Luna decorata</div>
-        <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Luna%20decorata">WhatsApp</a>
-          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Luna%20decorata">Email</a>
-        </div>
-      </figcaption>
-    </figure>
-
-    <!-- 3 -->
-    <figure>
-      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg" alt="Albero della Vita">
-      <figcaption>
-        <div class="ttl">Albero della Vita</div>
-        <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20l'Albero%20della%20Vita">WhatsApp</a>
-          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Albero%20della%20Vita">Email</a>
-        </div>
-      </figcaption>
-    </figure>
-
-    <!-- aggiungi qui le altre immagini con lo stesso schema -->
+  <!-- Header -->
+  <div class="top">
+    <div class="wrap">
+      <a class="brand" href="/"><span class="badge">M3DV</span><span>Solution</span></a>
+      <a class="back" href="/">← Torna alla Home</a>
+    </div>
   </div>
 
+  <!-- Intro -->
+  <section class="hero">
+    <h1>Wall-Art 3D</h1>
+    <p>Formato standard 25×20 cm in ABS nero.<br>Prezzi: <strong>10 € + spedizione</strong> oppure <strong>11 € tutto incluso</strong>.</p>
+  </section>
+
+  <!-- Gallery (generata via JS) -->
+  <section class="gallery" id="gallery"></section>
+
+  <!-- CTA finale -->
+  <section class="cta">
+    <h3>Vuoi una Wall-Art personalizzata?</h3>
+    <p class="muted">Mandaci un’idea, una foto o un logo: facciamo bozza, prezzo, stampa e spedizione.</p>
+    <div class="row">
+      <a class="btn wa" href="https://wa.me/393518689785">Scrivici su WhatsApp</a>
+      <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Richiesta%20Wall-Art%20personalizzata">Scrivici via Email</a>
+    </div>
+  </section>
+
+  <footer>© M3DV Parts — MDV Solution · <a href="https://wa.me/393518689785">+39 351 868 9785</a> · <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a></footer>
+
+  <script>
+    // === CONFIG ===
+    const PHONE = "393518689785";
+    const MAIL  = "mdvsolutionpro@gmail.com";
+    // Sostituisci quando hai il tuo link PayPal (PayPal.me o Payment Link)
+    const PAYPAL_LINK = "https://www.paypal.com/paypalme/TUONOME/11"; // 11 € tutto incluso
+
+    // Lista prodotti (aggiungine altri copiando la riga e cambiando file/titolo)
+    const PRODUCTS = [
+      {
+        title: "Ciclista su montagna",
+        file:  "/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg",
+        alt:   "Ciclista su montagna, Wall-Art 3D",
+        price: "10 € + spedizione",
+        paypalText: "Acquista 11 €"
+      },
+      {
+        title: "Luna decorata",
+        file:  "/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg",
+        alt:   "Luna decorata, Wall-Art 3D",
+        price: "10 € + spedizione",
+        paypalText: "Acquista 11 €"
+      },
+      {
+        title: "Albero della Vita",
+        file:  "/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg",
+        alt:   "Albero della Vita, Wall-Art 3D",
+        price: "10 € + spedizione",
+        paypalText: "Acquista 11 €"
+      }
+      // Aggiungi qui altri elementi: { title:"...", file:"/IMAGE/WALLART/xxx.jpg", alt:"...", price:"10 € + spedizione", paypalText:"Acquista 11 €" }
+    ];
+
+    // === RENDER ===
+    const $g = document.getElementById('gallery');
+
+    function enc(s){ return encodeURIComponent(s || ""); }
+
+    function itemHTML(p){
+      const wa = `https://wa.me/${PHONE}?text=${enc("Ciao! Vorrei ordinare la Wall-Art " + p.title)}`;
+      const em = `mailto:${MAIL}?subject=${enc("Ordine Wall-Art " + p.title)}`;
+      // PayPal: se hai link specifico per item, cambialo qui; altrimenti usa PAYPAL_LINK generale
+      const pp = PAYPAL_LINK;
+
+      return `
+        <article class="card">
+          <img loading="lazy" class="thumb" src="${p.file}" alt="${p.alt}" onerror="this.style.display='none'">
+          <div class="body">
+            <div class="ttl">${p.title}</div>
+            <div class="price">${p.price}</div>
+            <div class="actions">
+              <a class="btn wa"   href="${wa}" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn mail" href="${em}">Email</a>
+              <a class="btn pp"   href="${pp}" target="_blank" rel="noopener">${p.paypalText || "PayPal"}</a>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    // Monta la lista
+    $g.innerHTML = PRODUCTS.map(itemHTML).join("");
+  </script>
 </body>
 </html>
