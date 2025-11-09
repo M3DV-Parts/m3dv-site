@@ -1,96 +1,188 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>M3DV Solution — Home</title>
-<meta name="description" content="Artigiani digitali: personalizziamo, riproduciamo e inventiamo oggetti 3D su misura.">
-<style>
-  :root{--ink:#111;--muted:#676a6f;--bg:#f6f7f8;--brand:#ffd500;--card:#fff;--shadow:0 6px 24px rgba(0,0,0,.08);--r:16px}
-  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,Arial}
-  a{text-decoration:none;color:inherit}
-  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-  /* NAV */
-  header{position:sticky;top:0;z-index:20;background:#111;color:#fff}
-  nav.wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
-  .logo{display:flex;gap:10px;align-items:center;font-weight:800}
-  .badge{background:var(--brand);color:#111;border-radius:8px;padding:4px 8px}
-  .menu a{padding:8px 10px;border-radius:10px;opacity:.95}
-  .menu a:hover{background:#1b1b1b}
-  /* HERO pannello unico */
-  .hero{position:relative;min-height:68vh;display:flex;align-items:center}
-  .panel{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;max-width:680px}
-  .kicker{display:inline-block;background:#ffe680;color:#3a2e00;font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:8px}
-  h1{margin:.1em 0 .3em;font-size:clamp(22px,4.4vw,36px);line-height:1.15}
-  p{color:var(--muted);margin:.5em 0}
-  /* sfondo moto a destra */
-  .moto{
-    position:absolute; inset:0; pointer-events:none; 
-    background:
-      linear-gradient(90deg, rgba(246,247,248,1) 0%, rgba(246,247,248,.92) 48%, rgba(246,247,248,0) 66%),
-      url("/IMAGE/WALLART/Img_2025_11_05_00_19_02~2.jpeg") right center / contain no-repeat;
-    opacity:.55;
-  }
-  /* fab search (solo 🔍) */
-  .fab{
-    position:fixed; right:18px; bottom:18px; z-index:30;
-    width:56px; height:56px; border-radius:50%;
-    background:#111; color:#fff; display:flex; align-items:center; justify-content:center;
-    box-shadow:0 10px 28px rgba(0,0,0,.18); font-size:24px; cursor:pointer;
-  }
-  footer{padding:24px 0;color:#7a7f86}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>M3DV Solution — Immagina • Personalizza • Riproduci</title>
+  <meta name="description" content="Produzione 3D su misura: trasformiamo idee in oggetti reali. Personalizziamo, riproduciamo l’introvabile, inventiamo insieme." />
+
+  <style>
+    :root{
+      --bg: #f3f4f6;          /* grigio chiaro */
+      --card: #ffffff;
+      --ink: #202327;
+      --muted: #6b7280;
+      --brand: #ffd800;       /* giallo fluo soft */
+      --accent: #ef4444;      /* rosso per CTA */
+      --radius: 14px;
+      --hero-bg: url('/IMAGE/WALLART/motocross.png'); /* 👈 CAMBIA con il tuo file */
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.82);
+         backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e5e7eb}
+    .nav .bar{display:flex;align-items:center;gap:14px;justify-content:space-between;height:62px}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+    .logo-badge{background:var(--brand);padding:6px 10px;border-radius:8px;font-weight:900}
+    .menu{display:flex;gap:14px;flex-wrap:wrap}
+    .menu a{padding:8px 12px;border-radius:10px}
+    .menu a:hover{background:#eef0f3}
+
+    /* HERO */
+    .hero{
+      background:
+        radial-gradient(1000px 600px at 95% 55%, rgba(0,0,0,.06), transparent 60%),
+        var(--hero-bg);
+      background-repeat:no-repeat;
+      background-position:right -80px top 40px, right -160px center;
+      background-size:520px auto, 800px auto;
+    }
+    .hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:26px;min-height:400px;padding:54px 0}
+    .pill{display:inline-block;background:#111;color:#fff;border-radius:999px;padding:6px 12px;font-size:.86rem}
+    .title{font-size:clamp(26px,3.2vw,40px);line-height:1.1;margin:14px 0 12px}
+    .lead{color:var(--muted);font-size:1.05rem}
+    .cta{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:700}
+    .btn-wa{background:#25d366;color:#fff}
+    .btn-mail{background:#0ea5e9;color:#fff}
+    .mock{display:block;width:100%;height:100%;border-radius:var(--radius);background:var(--card);
+          box-shadow:0 10px 30px rgba(0,0,0,.07);opacity:.88}
+
+    /* 3 CANALI */
+    .channels{padding:10px 0 24px}
+    .cards{display:grid;grid-template-columns:1fr;gap:14px}
+    @media(min-width:800px){.cards{grid-template-columns:repeat(3,1fr)}}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;border:1px solid #e5e7eb}
+    .card h3{margin:0 0 8px}
+    .card p{color:var(--muted);margin:0 0 14px}
+    .card .go{display:inline-block;background:#111;color:#fff;border-radius:10px;padding:10px 12px}
+    .card .go:hover{background:#000}
+
+    /* SEARCH BAR */
+    .search{margin:34px 0 60px;background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);padding:16px}
+    .search h4{margin:0 0 10px}
+    .search .row{display:flex;gap:10px;flex-wrap:wrap}
+    .search input{flex:1;min-width:220px;padding:12px 14px;border:1px solid #d1d5db;border-radius:12px;outline:none}
+    .sx{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:#eef0f3;border-radius:999px;padding:8px 12px}
+    .go-site{background:var(--accent);color:#fff;border:none;border-radius:12px;padding:12px 14px;font-weight:800}
+    .go-site.secondary{background:#111}
+
+    /* FOOTER */
+    .foot{padding:28px 0;color:#6b7280;text-align:center;border-top:1px solid #e5e7eb}
+  </style>
 </head>
 <body>
-<header>
-  <nav class="wrap">
-    <div class="logo"><span class="badge">M3DV</span><span>Solution</span></div>
-    <div class="menu">
-      <a href="/index.html">Home</a>
-      <a href="/wall-art.html">Wall-Art</a>
-      <a href="/personalizziamo.html">Personalizziamo</a>
-      <a href="/riproduciamo.html">Riproduciamo</a>
-      <a href="/inventiamo.html">Inventiamo</a>
-      <a href="/gallery.html">Gallery</a>
-      <a href="/contatti.html">Contatti</a>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap bar">
+      <div class="logo">
+        <span class="logo-badge">M3DV</span> Solution
+      </div>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="wall-art.html">Wall-Art</a>
+        <a href="personalizziamo.html">Personalizziamo</a>
+        <a href="riproduciamo.html">Riproduciamo</a>
+        <a href="inventiamo.html">Inventiamo</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<main class="wrap hero">
-  <div class="moto" aria-hidden="true"></div>
-  <section class="panel">
-    <span class="kicker">I nostri obiettivi per te</span>
-    <h1>Trasformiamo ogni tuo pensiero in un oggetto reale.</h1>
-    <p>
-      Siamo artigiani digitali: <b>personalizziamo</b> regali e wall-art, <b>riproduciamo</b> ricambi introvabili
-      e <b>inventiamo</b> soluzioni su misura. Dalla bozza alla stampa finale con la nostra <b>Prusa MK4S</b>.
-    </p>
-  </section>
-</main>
+  <main class="wrap">
 
-<!-- SOLO il 🔍 -->
-<button class="fab" title="Cerca un modello STL" onclick="startSearch()">🔍</button>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="grid">
+        <div>
+          <span class="pill">Personalizziamo il tuo mondo</span>
+          <h1 class="title">Hai in mente un oggetto speciale che non esiste (ancora)?</h1>
+          <p class="lead">
+            Dalla foto al pezzo finito: <b>immaginiamo</b>, <b>progettiamo</b> e <b>stampiamo in 3D</b>.
+            Se è introvabile o fuori produzione, lo <b>riproduciamo su misura</b>.
+            Se vuoi qualcosa di unico, lo <b>inventiamo insieme</b>.
+          </p>
+          <div class="cta">
+            <a class="btn btn-wa" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20informazioni%20sulle%20stampe%203D%20M3DV.">WhatsApp</a>
+            <a class="btn btn-mail" href="mailto:mdvsolutionpro@gmail.com?subject=Info%20stampe%203D%20M3DV">Email</a>
+          </div>
+        </div>
+        <div class="mock" aria-hidden="true"></div>
+      </div>
+    </section>
 
-<footer class="wrap">© 2025 M3DV Solution — MDV Revolution</footer>
+    <!-- 3 CANALI -->
+    <section class="channels">
+      <div class="cards">
+        <article class="card">
+          <h3>Personalizziamo</h3>
+          <p>Nomi, loghi, scritte, regali. Mandaci un’idea o un disegno: prepariamo la bozza e te la facciamo approvare prima della stampa.</p>
+          <a class="go" href="personalizziamo.html">Vai alla pagina →</a>
+        </article>
+        <article class="card">
+          <h3>Riproduciamo l’introvabile</h3>
+          <p>Ricambi fuori produzione? Pezzi rotti? Scatta una foto con misure: valutiamo se si può rifare in 3D.</p>
+          <a class="go" href="riproduciamo.html">Vai alla pagina →</a>
+        </article>
+        <article class="card">
+          <h3>Inventiamo insieme</h3>
+          <p>Accessori, supporti, soluzioni su misura. Partiamo da zero: idea, rendering, prototipo e stampa finale.</p>
+          <a class="go" href="inventiamo.html">Vai alla pagina →</a>
+        </article>
+      </div>
+    </section>
 
-<script>
-  function enc(s){return encodeURIComponent(s.trim())}
-  function openAll(q){
-    const k=enc(q);
-    const targets=[
-      'https://www.printables.com/search?q='+k,
-      'https://www.thingiverse.com/search?q='+k+'&type=things',
-      'https://www.myminifactory.com/search/?query='+k,
-      'https://thangs.com/search/'+k,
-      'https://grabcad.com/library?query='+k
-    ];
-    targets.forEach(u=>window.open(u,'_blank'));
-  }
-  function startSearch(){
-    const q = prompt('Cosa vuoi cercare? (es. wall art wolf, knob oven, phone mount)');
-    if(q && q.trim()) openAll(q);
-  }
-</script>
+    <!-- SEARCH -->
+    <section class="search" id="search">
+      <h4>🔍 Cerca modelli 3D (STL)</h4>
+      <div class="row">
+        <input id="q" type="search" placeholder="Es. wall art, bike mount, manopole, cover..." />
+        <div class="sx">
+          <button class="go-site" onclick="go('printables')">Cerca su Printables</button>
+          <button class="go-site secondary" onclick="go('thingiverse')">Thingiverse</button>
+          <button class="go-site secondary" onclick="go('mmf')">MyMiniFactory</button>
+        </div>
+      </div>
+      <p class="muted" style="margin:10px 0 0;color:var(--muted);font-size:.9rem">
+        I link aprono la ricerca sul sito scelto. Consiglio: filtra per <b>licenze che permettono uso commerciale</b> oppure contatta l’autore.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      © 2025 M3DV Solution — MDV Revolution •
+      <a href="https://wa.me/393518689785">+39 351 868 9785</a> •
+      <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    function go(site){
+      const q = encodeURIComponent(document.getElementById('q').value.trim() || '');
+      let url = '';
+      switch(site){
+        case 'printables':
+          url = `https://www.printables.com/search/models?q=${q}`;
+          break;
+        case 'thingiverse':
+          url = `https://www.thingiverse.com/search?q=${q}&type=things`;
+          break;
+        case 'mmf':
+          url = `https://www.myminifactory.com/search/?query=${q}&page=1`;
+          break;
+      }
+      window.open(url, '_blank');
+    }
+  </script>
 </body>
 </html>
