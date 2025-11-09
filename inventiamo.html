@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inventiamo — M3DV</title>
+<style>
+  :root{--ink:#111;--bg:#f6f7f8;--card:#fff;--brand:#ffd500;--shadow:0 6px 24px rgba(0,0,0,.08);--r:16px}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,Arial}
+  a{text-decoration:none;color:inherit} .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  header{position:sticky;top:0;background:#111;color:#fff} nav.wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
+  .badge{background:var(--brand);color:#111;border-radius:8px;padding:4px 8px;font-weight:900}
+  .menu a{padding:8px 10px;border-radius:10px;opacity:.95} .menu a:hover{background:#1b1b1b}
+  h1{margin:18px 0 6px}.muted{color:#676a6f}
+  .card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:16px;margin:16px 0}
+  .search{display:flex;gap:8px}
+  .search input{flex:1;border:1px solid #d6d7da;border-radius:10px;padding:10px 12px;background:#fff}
+  .search button{border:none;background:#111;color:#fff;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{background:#111;color:#fff;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}
+  footer{padding:24px 0;color:#7a7f86}
+</style></head>
+<body>
+<header><nav class="wrap">
+  <div><span class="badge">M3DV</span> <span>Solution</span></div>
+  <div class="menu">
+    <a href="/index.html">Home</a><a href="/wall-art.html">Wall-Art</a>
+    <a href="/personalizziamo.html">Personalizziamo</a><a href="/riproduciamo.html">Riproduciamo</a>
+    <a href="/inventiamo.html">Inventiamo</a><a href="/gallery.html">Gallery</a><a href="/contatti.html">Contatti</a>
+  </div>
+</nav></header>
+
+<main class="wrap">
+  <h1>Inventiamo insieme</h1>
+  <p class="muted">Soluzioni originali su misura: schizzi, rendering, prototipo e stampa. Progettiamo con te ciò che non esiste ancora.</p>
+
+  <div class="card">
+    <h3>Cerca ispirazione</h3>
+    <div class="search"><input id="q" placeholder="Esempio: camera mount, cable clip, organizer"><button onclick="go()">Cerca</button></div>
+    <div class="chips">
+      <span class="chip" onclick="site('printables')">Printables</span>
+      <span class="chip" onclick="site('thingiverse')">Thingiverse</span>
+      <span class="chip" onclick="site('mmf')">MyMiniFactory</span>
+      <span class="chip" onclick="site('thangs')">Thangs</span>
+      <span class="chip" onclick="site('grabcad')">GrabCAD</span>
+    </div>
+    <p class="muted" style="margin-top:6px">Applica filtri “free/uso commerciale” quando disponibili.</p>
+  </div>
+</main>
+
+<footer class="wrap">© 2025 M3DV Solution</footer>
+
+<script>
+  const v=id=>document.getElementById(id).value.trim(); const enc=s=>encodeURIComponent(s)
+  function go(){const q=v('q'); if(q) openAll(q);}
+  function openAll(q){const k=enc(q);[
+    'https://www.printables.com/search?q='+k,
+    'https://www.thingiverse.com/search?q='+k+'&type=things',
+    'https://www.myminifactory.com/search/?query='+k,
+    'https://thangs.com/search/'+k,
+    'https://grabcad.com/library?query='+k
+  ].forEach(u=>window.open(u,'_blank'))}
+  function site(s){const k=enc(v('q'));let u='';
+    if(s==='printables')u='https://www.printables.com/search?q='+k;
+    if(s==='thingiverse')u='https://www.thingiverse.com/search?q='+k+'&type=things';
+    if(s==='mmf')u='https://www.myminifactory.com/search/?query='+k;
+    if(s==='thangs')u='https://thangs.com/search/'+k;
+    if(s==='grabcad')u='https://grabcad.com/library?query='+k;
+    window.open(u,'_blank');
+  }
+</script>
+</body></html>
