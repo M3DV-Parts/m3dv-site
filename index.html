@@ -1,399 +1,185 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>M3DV Solution — Stampa 3D su misura</title>
-<meta name="description" content="Wall-Art, ricambi e stampe 3D personalizzate. Ordini via WhatsApp o Email.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M3DV Solution – Personalizziamo il tuo mondo</title>
 <style>
-  /* ====== THEME ====== */
-  :root{
-    --fluoy:#D7FF00;      /* giallo fluo main */
-    --accent:#E11900;     /* rosso */
-    --bg:#ffffff; --ink:#111; --muted:#6b7280; --card:#fff; --line:#e5e7eb;
-  }
-  body.dark{
-    --bg:#0b0f14; --ink:#e6e7e9; --muted:#9aa4b2; --card:#0f141b; --line:#1f2937;
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Noto Sans",sans-serif;background:var(--bg);color:var(--ink)}
-  a{color:inherit}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-  /* ====== NAV ====== */
-  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  body.dark header{background:rgba(11,15,20,.6)}
-  .nav{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 0}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.4px}
-  .dot{width:14px;height:14px;border-radius:3px;background:var(--fluoy);outline:2px solid var(--accent)}
-  .menu{display:flex;gap:10px;flex-wrap:wrap}
-  .menu a{padding:8px 10px;border-radius:8px;text-decoration:none;border:1px solid var(--line)}
-  .menu a:hover{border-color:var(--accent)}
-  .right{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);text-decoration:none;font-weight:700}
-  .btn-cta{background:var(--fluoy);border-color:var(--accent)}
-  .btn-ghost{background:transparent}
-  select{padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
-  /* ====== HERO ====== */
-  .hero{padding:36px 0 18px;border-bottom:1px solid var(--line)}
-  .hero h1{font-size:clamp(24px,3.6vw,40px);margin:0 0 8px}
-  .hero p{margin:0 0 16px;color:var(--muted)}
-  /* ====== SECTIONS ====== */
-  section{padding:26px 0}
-  h2{font-size:20px;margin:0 0 10px}
-  .list{display:grid;grid-template-columns:1fr;gap:10px}
-  .row{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-  .row strong{font-size:16px}
-  .muted{color:var(--muted)}
-  /* FORM */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
-  .field{display:flex;flex-direction:column;gap:6px}
-  .field input,.field select,.field textarea{padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
-  .actions{display:flex;gap:10px;flex-wrap:wrap}
-  footer{border-top:1px solid var(--line);padding:16px 0;color:var(--muted);font-size:14px}
+:root {
+  --main:#ffed00; --accent:#e11; --dark:#0b0b0f; --light:#f6f7fb;
+}
+body {
+  margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--light);
+  color:#111; line-height:1.6;
+}
+a {text-decoration:none}
+header,nav,footer {text-align:center}
+nav {display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px;background:#111}
+nav a {color:var(--main);font-weight:600;padding:6px 10px;border-radius:6px}
+nav a:hover{background:rgba(255,255,255,.1)}
+.hero{
+  position:relative;height:60vh;overflow:hidden;color:#fff;text-align:center;
+}
+.slide{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;animation:fade 18s infinite;
+}
+.slide:nth-child(1){animation-delay:0s}
+.slide:nth-child(2){animation-delay:6s}
+.slide:nth-child(3){animation-delay:12s}
+@keyframes fade{0%,33%{opacity:1}45%,100%{opacity:0}}
+.overlay{
+  position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2));
+  display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;
+}
+.overlay h1{font-size:clamp(26px,5vw,40px);color:var(--main);margin-bottom:10px}
+.overlay p{max-width:700px;font-size:clamp(14px,2vw,18px)}
+/* WALL ART */
+.wall{padding:30px 10px;text-align:center}
+.wall h2{font-size:clamp(22px,3vw,28px);margin:0;color:#111}
+.gallery{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;max-width:1100px;margin:20px auto;
+}
+.card{
+  background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);
+  transition:transform .2s ease;
+}
+.card:hover{transform:translateY(-4px)}
+.card img{width:100%;display:block}
+.card-body{padding:10px}
+.card-body h3{margin:4px 0;font-size:1em;color:#111}
+.price{color:#555;font-size:.9em}
+.btns{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
+.btn{padding:6px 10px;border-radius:6px;font-size:.85em;color:#fff}
+.btn.green{background:#25d366}
+.btn.blue{background:#0078d7}
+.btn.pay{background:var(--accent)}
+/* MACRO CATEGORIE */
+.macro{padding:40px 10px;text-align:center}
+.macro h2{color:#111;margin:0 0 8px}
+.macro-sub{color:#555;margin-bottom:24px}
+.macro-grid{
+  display:grid;gap:16px;max-width:1100px;margin:0 auto;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.macro-card{
+  display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .2s;
+}
+.macro-card:hover{transform:translateY(-4px)}
+.macro-img{height:160px;background-size:cover;background-position:center}
+.macro-body{padding:14px;text-align:left}
+.macro-body h3{margin:0 0 6px;color:#111}
+.macro-body p{margin:0 0 10px;color:#555}
+.macro-cta{color:var(--accent);font-weight:600}
+/* FOOTER */
+footer{padding:20px;text-align:center;font-size:.9em;color:#555}
+footer a{color:#0078d7}
+/* DARK MODE */
+@media (prefers-color-scheme:dark){
+ body{background:var(--dark);color:#e5e7eb}
+ nav{background:#000}
+ .card,.macro-card{background:#111;box-shadow:0 4px 16px rgba(0,0,0,.6)}
+ .card-body h3,.macro-body h3{color:#fafafa}
+ .macro-body p,.price{color:#ccc}
+ .macro-cta{color:var(--main)}
+}
 </style>
 </head>
 <body>
-<header>
-  <div class="wrap nav">
-    <div class="brand"><span class="dot"></span><span>M3DV Solution</span></div>
-    <nav class="menu">
-      <a href="/">Home</a>
-      <a href="/wallart.html" data-i18n="nav_wallart">Wall-Art</a>
-      <a href="#ricambi" data-i18n="nav_spare">Ricambi</a>
-      <a href="#materiali" data-i18n="nav_materials">Materiali</a>
-      <a href="#contatti" data-i18n="nav_contact">Contatti</a>
-      <a href="#parapark">ParaPark 3D</a>
-    </nav>
-    <div class="right">
-      <button id="theme" class="btn btn-ghost" title="Tema">🌗</button>
-      <select id="lang">
-        <option value="it">IT</option>
-        <option value="en">EN</option>
-        <option value="es">ES</option>
-        <option value="pt">PT</option>
-      </select>
-      <a class="btn btn-cta" href="https://wa.me/393518689785" data-i18n="cta_whatsapp">Ordina su WhatsApp</a>
-    </div>
+
+<!-- NAV -->
+<nav>
+  <a href="/">Home</a>
+  <a href="/pages/wallart.html">Wall-Art</a>
+  <a href="/pages/personalizziamo.html">Personalizziamo</a>
+  <a href="/pages/riproduciamo.html">Riproduciamo</a>
+  <a href="/pages/inventiamo.html">Inventiamo</a>
+  <a href="#contatti">Contatti</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
+  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
+  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
+  <div class="overlay">
+    <h1>Personalizziamo il tuo mondo</h1>
+    <p>Ogni idea può diventare realtà. Con la stampa 3D creiamo pezzi unici,
+       ricambi introvabili e opere personalizzate per la tua casa o il tuo progetto.</p>
   </div>
-</header>
+</section>
 
-<main class="wrap">
-  <!-- HERO -->
-  <section class="hero">
-    <h1 data-i18n="hero_title">Wall-Art 3D in evidenza</h1>
-    <p class="muted" data-i18n="hero_sub">
-      Decorazioni da parete stampate in 3D (25×20 cm) — 10 € + spedizione. Altre misure su richiesta.
-    </p>
-    <div class="actions">
-      <a class="btn btn-cta" href="/wallart.html" data-i18n="hero_btn1">Vedi collezione</a>
-      <a class="btn" href="#ricambi" data-i18n="hero_btn2">Richiedi un ricambio</a>
-    </div>
-  </section>
+<!-- WALL-ART -->
+<section class="wall">
+  <h2>Wall-Art 3D</h2>
+  <p>Stampe decorative 25×20 cm in ABS nero – 10 € + spedizione o 11 € tutto incluso.</p>
 
-  <!-- TOP CATEGORIE (lista semplice) -->
-  <section id="top">
-    <h2 data-i18n="top_title">Top categorie ricambi</h2>
-    <p class="muted" data-i18n="top_sub">Scegli una categoria, cerca su Printables/Thingiverse/MMF e incolla il link nel form.</p>
+  <div class="gallery">
+    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg" alt="Ciclista su montagna">
+      <div class="card-body"><h3>Ciclista su montagna</h3><div class="price">10 € + sped.</div>
+      <div class="btns">
+        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Ciclista">WhatsApp</a>
+        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Wall-Art%20Ciclista">Email</a>
+        <a class="btn pay" href="#">Acquista 11 €</a>
+      </div></div></div>
 
-    <div class="list" id="catList">
-      <!-- righe generate da JS -->
-    </div>
-  </section>
+    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg" alt="Luna decorata">
+      <div class="card-body"><h3>Luna decorata</h3><div class="price">10 € + sped.</div>
+      <div class="btns">
+        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Luna%20decorata">WhatsApp</a>
+        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Luna%20decorata">Email</a>
+        <a class="btn pay" href="#">Acquista 11 €</a>
+      </div></div></div>
 
-  <!-- RICAMBI -->
-  <section id="ricambi">
-    <h2 data-i18n="sp_title">Trova e ordina il tuo pezzo</h2>
-    <div class="grid">
-      <div class="field">
-        <label for="catSel" data-i18n="sp_cat">Categoria</label>
-        <select id="catSel"></select>
-      </div>
-      <div class="field">
-        <label for="brand" data-i18n="sp_model">Marca / Modello</label>
-        <input id="brand" placeholder="Audi A3 2006, Dyson V8, Ikea Kallax">
-      </div>
-      <div class="field">
-        <label for="q" data-i18n="sp_keywords">Parole chiave</label>
-        <input id="q" placeholder="gancio, clip, supporto…">
-      </div>
-      <div class="actions">
-        <a class="btn" id="sPrint">Printables</a>
-        <a class="btn" id="sThing">Thingiverse</a>
-        <a class="btn" id="sMMF">MMF</a>
-      </div>
-    </div>
+    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg" alt="Albero della Vita">
+      <div class="card-body"><h3>Albero della Vita</h3><div class="price">10 € + sped.</div>
+      <div class="btns">
+        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20l'Albero%20della%20Vita">WhatsApp</a>
+        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Albero%20della%20Vita">Email</a>
+        <a class="btn pay" href="#">Acquista 11 €</a>
+      </div></div></div>
+  </div>
+</section>
 
-    <div class="grid" style="margin-top:10px">
-      <div class="field" style="grid-column:1/-1">
-        <label for="link" data-i18n="sp_link">Link al modello (se disponibile)</label>
-        <input id="link" type="url" placeholder="https://…">
-      </div>
-      <div class="field">
-        <label for="mat" data-i18n="sp_mat">Materiale</label>
-        <select id="mat">
-          <option>ABS</option><option>PLA</option><option>PETG</option>
-          <option>ASA</option><option>TPU</option><option>PC-Blend</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="col" data-i18n="sp_color">Colore</label>
-        <input id="col" placeholder="nero, bianco, trasparente…">
-      </div>
-      <div class="field" style="grid-column:1/-1">
-        <label for="note" data-i18n="sp_notes">Note</label>
-        <textarea id="note" rows="3" placeholder="Quantità, dimensioni, tolleranze…"></textarea>
-      </div>
-    </div>
-
-    <div class="actions" style="margin-top:10px">
-      <a class="btn btn-cta" id="waSend" href="#">WhatsApp</a>
-      <a class="btn" id="mailSend" href="#">Email</a>
-      <a class="btn" id="pp" target="_blank" rel="noopener" href="https://www.paypal.com/paypalme/TUONOME/10">PayPal</a>
-    </div>
-    <p class="muted" style="margin-top:6px" data-i18n="sp_hint">Se non hai il link, inviaci foto e misure: possiamo modellare noi.</p>
-  </section>
-
-  <!-- MATERIALI -->
-  <section id="materiali">
-    <h2 data-i18n="mat_title">Materiali disponibili</h2>
-    <ul class="list">
-      <li class="row"><strong>ABS</strong><span class="muted" data-i18n="mat_abs">Resistente al calore e agli urti.</span></li>
-      <li class="row"><strong>PETG</strong><span class="muted" data-i18n="mat_petg">Ottima resistenza e finitura lucida.</span></li>
-      <li class="row"><strong>TPU</strong><span class="muted" data-i18n="mat_tpu">Flessibile per guarnizioni e cover.</span></li>
-    </ul>
-  </section>
-
-  <!-- PARAPARK -->
-  <section id="parapark">
-    <h2>ParaPark 3D</h2>
-    <div class="row">
-      <span class="muted" data-i18n="pp_desc">Braccio protettivo per auto progettato da MDV, in sviluppo.</span>
-      <a class="btn" href="https://wa.me/393518689785">Info</a>
-    </div>
-  </section>
-
-  <!-- CONTATTI -->
-  <section id="contatti">
-    <h2 data-i18n="ct_title">Contatti</h2>
-    <div class="row">
-      <div>
-        <div>WhatsApp: <a href="https://wa.me/393518689785">+39 351 868 9785</a></div>
-        <div>Email: <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a></div>
-      </div>
-      <a class="btn btn-cta" href="https://wa.me/393518689785" data-i18n="cta_whatsapp">Ordina su WhatsApp</a>
-    </div>
-  </section>
-</main>
-
-<footer class="wrap">© M3DV Parts — MDV Solution</footer>
 <!-- MACRO CATEGORIE -->
 <section class="macro">
   <h2>Personalizziamo. Riproduciamo. Inventiamo.</h2>
-  <p class="macro-sub">Scegli il percorso giusto per te.</p>
+  <p class="macro-sub">Scegli il percorso giusto per il tuo progetto.</p>
 
   <div class="macro-grid">
-    <!-- Personalizziamo -->
     <a class="macro-card" href="/pages/personalizziamo.html">
       <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
-      <div class="macro-body">
-        <h3>Personalizziamo il tuo mondo</h3>
-        <p>Parti da un’idea o da un logo. Te lo progettiamo e stampiamo su misura.</p>
-        <span class="macro-cta">Entra →</span>
-      </div>
+      <div class="macro-body"><h3>Personalizziamo il tuo mondo</h3>
+        <p>Dalla tua idea nasce un modello unico: loghi, scritte, oggetti su misura.</p>
+        <span class="macro-cta">Scopri di più →</span></div>
     </a>
 
-    <!-- Riproduciamo -->
     <a class="macro-card" href="/pages/riproduciamo.html">
       <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
-      <div class="macro-body">
-        <h3>Riproduciamo l’introvabile</h3>
-        <p>Ricambi fuori produzione o rotti? Li replichiamo in 3D.</p>
-        <span class="macro-cta">Entra →</span>
-      </div>
+      <div class="macro-body"><h3>Riproduciamo l’introvabile</h3>
+        <p>Ricreiamo pezzi rotti o fuori produzione in ABS, PETG, ASA o TPU.</p>
+        <span class="macro-cta">Scopri di più →</span></div>
     </a>
 
-    <!-- Inventiamo -->
     <a class="macro-card" href="/pages/inventiamo.html">
       <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
-      <div class="macro-body">
-        <h3>Inventiamo insieme</h3>
-        <p>Co-design: schizzi, prototipi, test e stampa finale.</p>
-        <span class="macro-cta">Entra →</span>
-      </div>
+      <div class="macro-body"><h3>Inventiamo insieme</h3>
+        <p>Progettiamo da zero: schizzi, prototipi, test e stampa finale.</p>
+        <span class="macro-cta">Scopri di più →</span></div>
     </a>
   </div>
 </section>
-<script>
-/* ====== THEME TOGGLE ====== */
-const themeBtn = document.getElementById('theme');
-const savedTheme = localStorage.getItem('theme');
-if(savedTheme==='dark') document.body.classList.add('dark');
-themeBtn.addEventListener('click',()=>{
-  document.body.classList.toggle('dark');
-  localStorage.setItem('theme', document.body.classList.contains('dark')?'dark':'light');
-});
 
-/* ====== CATEGORIE MINIMAL ====== */
-const CATS = [
-  {name:'Auto', tip:'Ganci, clip, griglie, supporti…', brand:'Audi A3 2006', query:'gancio clip supporto'},
-  {name:'Moto', tip:'Staffe, carene, distanziali…', brand:'Yamaha MT-07', query:'staffa supporto'},
-  {name:'Casa / Arredo', tip:'Pomelli, mensole, adattatori…', brand:'Ikea Kallax', query:'pomello gancio'},
-  {name:'Elettrodomestici', tip:'Holder, clip, agganci…', brand:'Dyson V8', query:'holder clip'},
-  {name:'Elettronica', tip:'Case, cover, cable-management…', brand:'Raspberry Pi 4', query:'case cover'},
-  {name:'Sport / Tempo libero', tip:'Accessori bici, action cam…', brand:'MTB', query:'supporto action cam'}
-];
-const catList = document.getElementById('catList');
-const catSel = document.getElementById('catSel');
-CATS.forEach(c=>{
-  // lista righe
-  const row = document.createElement('div'); row.className='row';
-  row.innerHTML = `
-    <div>
-      <strong>${c.name}</strong>
-      <div class="muted">${c.tip}</div>
-    </div>
-    <div class="actions">
-      <a class="btn" target="_blank" rel="noopener" href="#" data-site="printables">Printables</a>
-      <a class="btn" target="_blank" rel="noopener" href="#" data-site="thing">Thingiverse</a>
-      <a class="btn" target="_blank" rel="noopener" href="#" data-site="mmf">MMF</a>
-      <a class="btn btn-cta" data-act="pick">Seleziona</a>
-    </div>`;
-  catList.appendChild(row);
-  // options form
-  const opt = document.createElement('option'); opt.textContent=c.name; catSel.appendChild(opt);
+<!-- CONTATTI -->
+<footer id="contatti">
+  <p>Vuoi una creazione personalizzata?<br>
+  Scrivici per idee, bozze o ordini.</p>
+  <p><a href="https://wa.me/393518689785">+39 351 868 9785</a> · 
+     <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a></p>
+  <p>© 2025 M3DV Solution · MDV Revolution</p>
+</footer>
 
-  // click handlers
-  row.querySelectorAll('[data-site]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      const site = a.dataset.site; const query = encodeURIComponent(`${c.name} ${c.brand} ${c.query}`);
-      if(site==='printables') a.href=`https://www.printables.com/search/models?q=${query}`;
-      if(site==='thing') a.href=`https://www.thingiverse.com/search?q=${query}&type=things`;
-      if(site==='mmf') a.href=`https://www.myminifactory.com/search/?query=${query}`;
-    });
-  });
-  row.querySelector('[data-act="pick"]').addEventListener('click',()=>{
-    catSel.value = c.name;
-    document.getElementById('brand').value = c.brand;
-    document.getElementById('q').value = c.query;
-    document.getElementById('ricambi').scrollIntoView({behavior:'smooth'});
-    updateSearchLinks();
-  });
-});
-
-/* ====== SEARCH LINKS ====== */
-const brand = document.getElementById('brand');
-const q = document.getElementById('q');
-const sPrint = document.getElementById('sPrint');
-const sThing = document.getElementById('sThing');
-const sMMF = document.getElementById('sMMF');
-function updateSearchLinks(){
-  const query = encodeURIComponent(`${catSel.value} ${brand.value} ${q.value}`.trim());
-  sPrint.href = `https://www.printables.com/search/models?q=${query}`;
-  sThing.href = `https://www.thingiverse.com/search?q=${query}&type=things`;
-  sMMF.href   = `https://www.myminifactory.com/search/?query=${query}`;
-}
-[catSel,brand,q].forEach(el=>el.addEventListener('input',updateSearchLinks));
-updateSearchLinks();
-
-/* ====== SEND WA / MAIL ====== */
-const WA = '393518689785';
-const MAIL = 'mdvsolutionpro@gmail.com';
-function enc(s){return encodeURIComponent(s||'');}
-document.getElementById('waSend').addEventListener('click',e=>{
-  e.preventDefault();
-  const msg =
-    `Richiesta ricambio%0A`+
-    `Categoria: ${enc(catSel.value)}%0A`+
-    `Marca/Modello: ${enc(brand.value)}%0A`+
-    `Parole chiave: ${enc(q.value)}%0A`+
-    `Link: ${enc(document.getElementById('link').value)}%0A`+
-    `Materiale: ${enc(document.getElementById('mat').value)}%0A`+
-    `Colore: ${enc(document.getElementById('col').value)}%0A`+
-    `Note: ${enc(document.getElementById('note').value)}`;
-  location.href=`https://wa.me/${WA}?text=${msg}`;
-});
-document.getElementById('mailSend').addEventListener('click',e=>{
-  e.preventDefault();
-  const subject = enc(`Richiesta ricambio — ${catSel.value} — ${brand.value}`);
-  const body =
-    `Categoria: ${catSel.value}%0A`+
-    `Marca/Modello: ${brand.value}%0A`+
-    `Parole chiave: ${q.value}%0A`+
-    `Link: ${document.getElementById('link').value}%0A`+
-    `Materiale: ${document.getElementById('mat').value}%0A`+
-    `Colore: ${document.getElementById('col').value}%0A`+
-    `Note: ${document.getElementById('note').value}`;
-  location.href=`mailto:${MAIL}?subject=${subject}&body=${body}`;
-});
-
-/* ====== I18N (IT/EN/ES/PT) ====== */
-const I18N = {
-  it:{ nav_wallart:"Wall-Art", nav_spare:"Ricambi", nav_materials:"Materiali", nav_contact:"Contatti",
-    cta_whatsapp:"Ordina su WhatsApp",
-    hero_title:"Wall-Art 3D in evidenza",
-    hero_sub:"Decorazioni da parete stampate in 3D (25×20 cm) — 10 € + spedizione. Altre misure su richiesta.",
-    hero_btn1:"Vedi collezione", hero_btn2:"Richiedi un ricambio",
-    top_title:"Top categorie ricambi", top_sub:"Scegli una categoria, cerca su Printables/Thingiverse/MMF e incolla il link nel form.",
-    sp_title:"Trova e ordina il tuo pezzo", sp_cat:"Categoria", sp_model:"Marca / Modello",
-    sp_keywords:"Parole chiave", sp_link:"Link al modello (se disponibile)", sp_mat:"Materiale", sp_color:"Colore",
-    sp_notes:"Note", sp_hint:"Se non hai il link, inviaci foto e misure: possiamo modellare noi.",
-    mat_title:"Materiali disponibili", mat_abs:"Resistente al calore e agli urti.", mat_petg:"Ottima resistenza e finitura lucida.", mat_tpu:"Flessibile per guarnizioni e cover.",
-    pp_desc:"Braccio protettivo per auto progettato da MDV, in sviluppo.",
-    ct_title:"Contatti"
-  },
-  en:{ nav_wallart:"Wall-Art", nav_spare:"Spare parts", nav_materials:"Materials", nav_contact:"Contacts",
-    cta_whatsapp:"Order on WhatsApp",
-    hero_title:"Featured 3D Wall-Art",
-    hero_sub:"3D printed wall decor (25×20 cm) — €10 + shipping. Other sizes on request.",
-    hero_btn1:"View collection", hero_btn2:"Request a spare",
-    top_title:"Top spare categories", top_sub:"Pick a category, search on Printables/Thingiverse/MMF and paste the link below.",
-    sp_title:"Find & order your part", sp_cat:"Category", sp_model:"Brand / Model",
-    sp_keywords:"Keywords", sp_link:"Model link (if available)", sp_mat:"Material", sp_color:"Color",
-    sp_notes:"Notes", sp_hint:"No link? Send photos and sizes — we can model it.",
-    mat_title:"Available materials", mat_abs:"Heat and impact resistant.", mat_petg:"Great strength and glossy finish.", mat_tpu:"Flexible for gaskets and covers.",
-    pp_desc:"Protective car arm designed by MDV, in progress.",
-    ct_title:"Contacts"
-  },
-  es:{ nav_wallart:"Wall-Art", nav_spare:"Repuestos", nav_materials:"Materiales", nav_contact:"Contacto",
-    cta_whatsapp:"Pedir por WhatsApp",
-    hero_title:"Wall-Art 3D destacado",
-    hero_sub:"Decoración de pared (25×20 cm) — 10 € + envío. Otras medidas a pedido.",
-    hero_btn1:"Ver colección", hero_btn2:"Pedir repuesto",
-    top_title:"Categorías top de repuestos", top_sub:"Elige, busca en Printables/Thingiverse/MMF y pega el enlace.",
-    sp_title:"Busca y pide tu pieza", sp_cat:"Categoría", sp_model:"Marca / Modelo",
-    sp_keywords:"Palabras clave", sp_link:"Enlace del modelo (si hay)", sp_mat:"Material", sp_color:"Color",
-    sp_notes:"Notas", sp_hint:"¿Sin enlace? Envíanos fotos y medidas.",
-    mat_title:"Materiales disponibles", mat_abs:"Resistencia al calor y golpes.", mat_petg:"Gran resistencia y acabado brillante.", mat_tpu:"Flexible para juntas y fundas.",
-    pp_desc:"Brazo protector para coche diseñado por MDV.",
-    ct_title:"Contacto"
-  },
-  pt:{ nav_wallart:"Wall-Art", nav_spare:"Peças", nav_materials:"Materiais", nav_contact:"Contactos",
-    cta_whatsapp:"Pedir no WhatsApp",
-    hero_title:"Wall-Art 3D em destaque",
-    hero_sub:"Decoração de parede (25×20 cm) — 10 € + envio. Outros tamanhos sob pedido.",
-    hero_btn1:"Ver coleção", hero_btn2:"Pedir peça",
-    top_title:"Categorias de peças", top_sub:"Escolhe, pesquisa no Printables/Thingiverse/MMF e cola o link.",
-    sp_title:"Encontra e pede a tua peça", sp_cat:"Categoria", sp_model:"Marca / Modelo",
-    sp_keywords:"Palavras-chave", sp_link:"Link do modelo (se houver)", sp_mat:"Material", sp_color:"Cor",
-    sp_notes:"Notas", sp_hint:"Sem link? Envia fotos e medidas.",
-    mat_title:"Materiais disponíveis", mat_abs:"Resistente ao calor e impactos.", mat_petg:"Excelente resistência e brilho.", mat_tpu:"Flexível para juntas e capas.",
-    pp_desc:"Braço protetor para carro desenhado pela MDV.",
-    ct_title:"Contactos"
-  }
-};
-const langSel = document.getElementById('lang');
-const savedLang = localStorage.getItem('lang') || 'it';
-langSel.value = savedLang; applyLang(savedLang);
-langSel.addEventListener('change', e=>{
-  const v = e.target.value; localStorage.setItem('lang', v); applyLang(v);
-});
-function applyLang(code){
-  const t = I18N[code] || I18N.it;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if(t[key]) el.innerHTML = t[key];
-  });
-}
-</script>
 </body>
 </html>
