@@ -1,185 +1,421 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>M3DV Solution – Personalizziamo il tuo mondo</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>M3DV Solution — Immagina • Personalizza • Riproduci</title>
+<meta name="description" content="Stampe 3D artigianali su misura: Wall-Art, ricambi introvabili e co-design. Contatta M3DV Solution su WhatsApp o Email." />
+
 <style>
-:root {
-  --main:#ffed00; --accent:#e11; --dark:#0b0b0f; --light:#f6f7fb;
-}
-body {
-  margin:0; font-family:Arial,Helvetica,sans-serif; background:var(--light);
-  color:#111; line-height:1.6;
-}
-a {text-decoration:none}
-header,nav,footer {text-align:center}
-nav {display:flex;justify-content:center;gap:10px;flex-wrap:wrap;padding:10px;background:#111}
-nav a {color:var(--main);font-weight:600;padding:6px 10px;border-radius:6px}
-nav a:hover{background:rgba(255,255,255,.1)}
-.hero{
-  position:relative;height:60vh;overflow:hidden;color:#fff;text-align:center;
-}
-.slide{
-  position:absolute;inset:0;background-size:cover;background-position:center;
-  opacity:0;animation:fade 18s infinite;
-}
-.slide:nth-child(1){animation-delay:0s}
-.slide:nth-child(2){animation-delay:6s}
-.slide:nth-child(3){animation-delay:12s}
-@keyframes fade{0%,33%{opacity:1}45%,100%{opacity:0}}
-.overlay{
-  position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),rgba(0,0,0,.2));
-  display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;
-}
-.overlay h1{font-size:clamp(26px,5vw,40px);color:var(--main);margin-bottom:10px}
-.overlay p{max-width:700px;font-size:clamp(14px,2vw,18px)}
-/* WALL ART */
-.wall{padding:30px 10px;text-align:center}
-.wall h2{font-size:clamp(22px,3vw,28px);margin:0;color:#111}
-.gallery{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;max-width:1100px;margin:20px auto;
-}
-.card{
-  background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.1);
-  transition:transform .2s ease;
-}
-.card:hover{transform:translateY(-4px)}
-.card img{width:100%;display:block}
-.card-body{padding:10px}
-.card-body h3{margin:4px 0;font-size:1em;color:#111}
-.price{color:#555;font-size:.9em}
-.btns{margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
-.btn{padding:6px 10px;border-radius:6px;font-size:.85em;color:#fff}
-.btn.green{background:#25d366}
-.btn.blue{background:#0078d7}
-.btn.pay{background:var(--accent)}
-/* MACRO CATEGORIE */
-.macro{padding:40px 10px;text-align:center}
-.macro h2{color:#111;margin:0 0 8px}
-.macro-sub{color:#555;margin-bottom:24px}
-.macro-grid{
-  display:grid;gap:16px;max-width:1100px;margin:0 auto;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-}
-.macro-card{
-  display:flex;flex-direction:column;background:#fff;border-radius:12px;overflow:hidden;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);transition:transform .2s;
-}
-.macro-card:hover{transform:translateY(-4px)}
-.macro-img{height:160px;background-size:cover;background-position:center}
-.macro-body{padding:14px;text-align:left}
-.macro-body h3{margin:0 0 6px;color:#111}
-.macro-body p{margin:0 0 10px;color:#555}
-.macro-cta{color:var(--accent);font-weight:600}
-/* FOOTER */
-footer{padding:20px;text-align:center;font-size:.9em;color:#555}
-footer a{color:#0078d7}
-/* DARK MODE */
-@media (prefers-color-scheme:dark){
- body{background:var(--dark);color:#e5e7eb}
- nav{background:#000}
- .card,.macro-card{background:#111;box-shadow:0 4px 16px rgba(0,0,0,.6)}
- .card-body h3,.macro-body h3{color:#fafafa}
- .macro-body p,.price{color:#ccc}
- .macro-cta{color:var(--main)}
-}
+  :root{
+    --bg:#e9eaed; --fg:#0f172a; --muted:#5b6574; --card:#ffffff; --line:#d6d9df;
+    --fluo:#ffed00; --accent:#e11; --ok:#25d366; --info:#0b66c3;
+  }
+  html[data-theme="dark"]{
+    --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8; --card:#0f172a; --line:#1f2533;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;background:var(--bg);color:var(--fg)}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:#111;color:#fff;border-bottom:1px solid #000}
+  .nav .wrap{max-width:1200px;margin:0 auto;display:flex;gap:12px;align-items:center;justify-content:space-between;padding:10px 16px}
+  .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:#fff;font-weight:900}
+  .brand-badge{background:var(--fluo);color:#111;padding:3px 8px;border-radius:8px}
+  .menu{display:flex;gap:10px;flex-wrap:wrap}
+  .menu a{color:var(--fluo);text-decoration:none;font-weight:700;padding:6px 10px;border-radius:6px}
+  .menu a:hover{background:rgba(255,255,255,.08)}
+  .toggles{display:flex;gap:6px;align-items:center}
+  .chip{cursor:pointer;border:1px solid #ffffff33;color:#fff;padding:6px 10px;border-radius:8px;font-weight:700}
+
+  /* SECTIONS */
+  .section{max-width:1200px;margin:0 auto;padding:26px 16px}
+  .hidden{display:none !important}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:60vh;display:grid;place-items:center;text-align:center;color:#fff;overflow:hidden;
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(255,237,0,.35), transparent 60%),
+      radial-gradient(1200px 600px at 110% 110%, rgba(225,17,17,.22), transparent 60%),
+      linear-gradient(180deg, #141821, #0b111b);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;opacity:.18;
+    background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg');
+    background-size:cover;background-position:center;filter:contrast(1.05) saturate(1.05) blur(1px);
+  }
+  .hero-inner{position:relative;z-index:1;max-width:1050px;padding:28px 16px}
+  .hero h1{margin:0 0 8px;font-size:clamp(26px,5vw,44px);color:var(--fluo);letter-spacing:.2px}
+  .hero p{margin:0 auto;max-width:820px;color:#dbe2ea}
+  .cta{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:800}
+  .btn.primary{background:var(--fluo);color:#111}
+  .btn.ghost{border:1px solid #ffffff88;color:#fff}
+
+  /* HOW */
+  .how{display:grid;gap:14px;grid-template-columns:repeat(4,1fr);margin-top:18px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+  .step .n{display:inline-block;background:#111;color:#fff;border-radius:8px;padding:2px 8px;margin-bottom:6px;font-weight:800}
+  .step h3{margin:6px 0 6px;font-size:1.05rem}
+  .step p{margin:0;color:var(--muted);font-size:.95rem}
+  @media(max-width:1000px){.how{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.how{grid-template-columns:1fr}}
+
+  /* CARDS / GALLERY */
+  .grid{display:grid;gap:16px}
+  .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+  .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+  .grid.cols-1{grid-template-columns:1fr}
+  @media(max-width:1000px){.grid.cols-3{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.08)}
+  .card .thumb{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#1111}
+  .card .body{padding:12px}
+  .ttl{font-weight:800}
+  .price{color:var(--muted);font-size:.95rem}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .btn.wa{background:var(--ok);color:#fff}
+  .btn.mail{background:var(--info);color:#fff}
+  .btn.pay{background:var(--accent);color:#fff}
+
+  /* CATEGORY TILES */
+  .tile{position:relative;min-height:200px;border-radius:14px;overflow:hidden;background:var(--card);border:1px solid var(--line);display:flex;align-items:flex-end;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .tile .bg{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.28}
+  .tile .veil{position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55))}
+  .tile .inner{position:relative;z-index:1;color:#fff;padding:14px}
+  .tile .go{display:inline-block;background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;font-weight:800;text-decoration:none}
+
+  /* FOOTER */
+  footer{margin:28px 0 18px;text-align:center;color:var(--muted);font-size:.95rem}
+  footer a{color:#0b66c3;text-decoration:none}
+
+  /* small helpers */
+  .lead{color:var(--muted)}
+  .center{text-align:center}
+  .mb8{margin-bottom:8px}
+  .mb16{margin-bottom:16px}
+  .mb24{margin-bottom:24px}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="/">Home</a>
-  <a href="/pages/wallart.html">Wall-Art</a>
-  <a href="/pages/personalizziamo.html">Personalizziamo</a>
-  <a href="/pages/riproduciamo.html">Riproduciamo</a>
-  <a href="/pages/inventiamo.html">Inventiamo</a>
-  <a href="#contatti">Contatti</a>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
-  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
-  <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
-  <div class="overlay">
-    <h1>Personalizziamo il tuo mondo</h1>
-    <p>Ogni idea può diventare realtà. Con la stampa 3D creiamo pezzi unici,
-       ricambi introvabili e opere personalizzate per la tua casa o il tuo progetto.</p>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" data-route="home" href="/"><span class="brand-badge">M3DV</span> <span>Solution</span></a>
+    <nav class="menu">
+      <a data-route="home" href="/">Home</a>
+      <a data-route="wallart" href="#wallart">Wall-Art</a>
+      <a data-route="personalizziamo" href="#personalizziamo">Personalizziamo</a>
+      <a data-route="riproduciamo" href="#riproduciamo">Riproduciamo</a>
+      <a data-route="inventiamo" href="#inventiamo">Inventiamo</a>
+      <a data-route="home" href="#contatti">Contatti</a>
+    </nav>
+    <div class="toggles">
+      <button id="themeBtn" class="chip">🌙/☀️</button>
+      <button id="langBtn" class="chip">IT/EN</button>
+    </div>
   </div>
+</header>
+
+<!-- HOME -->
+<section id="home" class="view">
+  <section class="hero">
+    <div class="hero-inner">
+      <h1 id="hTitle">Immagina • Personalizza • Riproduci</h1>
+      <p id="hDesc">Ogni idea può prendere forma in 3D: personalizzazioni uniche, ricambi introvabili e prototipi artigianali.
+        Lavoriamo con ABS, PETG, ASA e TPU sulla Prusa MK4S, con finiture curate e spedizioni rapide.</p>
+      <div class="cta">
+        <a class="btn primary" data-route="wallart" href="#wallart">Scopri cosa possiamo creare</a>
+        <a class="btn ghost" href="https://wa.me/393518689785" target="_blank" rel="noopener">Parla su WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="mb8" id="howTitle">Come funziona</h2>
+    <div class="how">
+      <article class="step"><span class="n">1</span><h3>Immagina</h3><p>Mandaci una foto, un’idea o il pezzo rotto da replicare.</p></article>
+      <article class="step"><span class="n">2</span><h3>Progettiamo</h3><p>Prepariamo il modello 3D e ti inviamo bozza & preventivo.</p></article>
+      <article class="step"><span class="n">3</span><h3>Stampiamo</h3><p>Materiale, colore e qualità su misura (0.28 / 0.20 / 0.12).</p></article>
+      <article class="step"><span class="n">4</span><h3>Ricevi</h3><p>Spedizione tracciata in 24–72h, supporto post-vendita.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="mb8">Top categorie</h2>
+    <p class="lead mb16">Scegli il percorso giusto per il tuo progetto.</p>
+    <div class="grid cols-3">
+      <a class="tile" data-route="wallart" href="#wallart" aria-label="Vai a Wall-Art 3D">
+        <div class="bg" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
+        <div class="veil"></div>
+        <div class="inner">
+          <h3>Casa & Design — Wall-Art</h3>
+          <p>Decorazioni 3D 25×20 cm e formati personalizzati.</p>
+          <span class="go">Esplora →</span>
+        </div>
+      </a>
+
+      <a class="tile" data-route="riproduciamo" href="#riproduciamo" aria-label="Vai a Auto & Moto">
+        <div class="bg" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
+        <div class="veil"></div>
+        <div class="inner">
+          <h3>Auto & Moto</h3>
+          <p>Clip, cover, distanziali, idee ParaPark — su misura.</p>
+          <span class="go">Esplora →</span>
+        </div>
+      </a>
+
+      <a class="tile" data-route="riproduciamo" href="#riproduciamo#ricambi" aria-label="Vai a Ricambi Tecnici">
+        <div class="bg" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
+        <div class="veil"></div>
+        <div class="inner">
+          <h3>Ricambi Tecnici</h3>
+          <p>Fuori produzione? Lo reverse-ingegnerizziamo e ristampiamo.</p>
+          <span class="go">Esplora →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section center" id="contatti">
+    <div class="card" style="padding:18px;border-radius:14px">
+      <h2 class="mb8">Richiedi il tuo modello</h2>
+      <p class="lead mb16">Hai un’idea o un ricambio introvabile? Inviaci foto, misure o un link al modello: rispondiamo subito.</p>
+      <div class="actions" style="justify-content:center">
+        <a class="btn wa" href="https://wa.me/393518689785" target="_blank" rel="noopener">WhatsApp: 351 868 9785</a>
+        <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Richiesta%20stampa%203D%20su%20misura">Email: mdvsolutionpro@gmail.com</a>
+      </div>
+    </div>
+  </section>
 </section>
 
-<!-- WALL-ART -->
-<section class="wall">
-  <h2>Wall-Art 3D</h2>
-  <p>Stampe decorative 25×20 cm in ABS nero – 10 € + spedizione o 11 € tutto incluso.</p>
-
-  <div class="gallery">
-    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg" alt="Ciclista su montagna">
-      <div class="card-body"><h3>Ciclista su montagna</h3><div class="price">10 € + sped.</div>
-      <div class="btns">
-        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Ciclista">WhatsApp</a>
-        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Wall-Art%20Ciclista">Email</a>
-        <a class="btn pay" href="#">Acquista 11 €</a>
-      </div></div></div>
-
-    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg" alt="Luna decorata">
-      <div class="card-body"><h3>Luna decorata</h3><div class="price">10 € + sped.</div>
-      <div class="btns">
-        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Luna%20decorata">WhatsApp</a>
-        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Luna%20decorata">Email</a>
-        <a class="btn pay" href="#">Acquista 11 €</a>
-      </div></div></div>
-
-    <div class="card"><img src="/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg" alt="Albero della Vita">
-      <div class="card-body"><h3>Albero della Vita</h3><div class="price">10 € + sped.</div>
-      <div class="btns">
-        <a class="btn green" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20l'Albero%20della%20Vita">WhatsApp</a>
-        <a class="btn blue" href="mailto:mdvsolutionpro@gmail.com?subject=Albero%20della%20Vita">Email</a>
-        <a class="btn pay" href="#">Acquista 11 €</a>
-      </div></div></div>
-  </div>
+<!-- WALLART -->
+<section id="wallart" class="view hidden">
+  <section class="section center">
+    <h2 class="mb8">Wall-Art 3D</h2>
+    <p class="lead mb16">Formato standard 25×20 cm in ABS nero — <strong>10 € + spedizione</strong> oppure <strong>11 € tutto incluso</strong>.</p>
+    <div class="grid cols-3" id="wallGrid"></div>
+    <p class="mb24"></p>
+    <a class="btn" data-route="home" href="/">← Torna alla Home</a>
+  </section>
 </section>
 
-<!-- MACRO CATEGORIE -->
-<section class="macro">
-  <h2>Personalizziamo. Riproduciamo. Inventiamo.</h2>
-  <p class="macro-sub">Scegli il percorso giusto per il tuo progetto.</p>
-
-  <div class="macro-grid">
-    <a class="macro-card" href="/pages/personalizziamo.html">
-      <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
-      <div class="macro-body"><h3>Personalizziamo il tuo mondo</h3>
-        <p>Dalla tua idea nasce un modello unico: loghi, scritte, oggetti su misura.</p>
-        <span class="macro-cta">Scopri di più →</span></div>
-    </a>
-
-    <a class="macro-card" href="/pages/riproduciamo.html">
-      <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
-      <div class="macro-body"><h3>Riproduciamo l’introvabile</h3>
-        <p>Ricreiamo pezzi rotti o fuori produzione in ABS, PETG, ASA o TPU.</p>
-        <span class="macro-cta">Scopri di più →</span></div>
-    </a>
-
-    <a class="macro-card" href="/pages/inventiamo.html">
-      <div class="macro-img" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
-      <div class="macro-body"><h3>Inventiamo insieme</h3>
-        <p>Progettiamo da zero: schizzi, prototipi, test e stampa finale.</p>
-        <span class="macro-cta">Scopri di più →</span></div>
-    </a>
-  </div>
+<!-- PERSONALIZZIAMO -->
+<section id="personalizziamo" class="view hidden">
+  <section class="section">
+    <h2 class="mb8">Personalizziamo il tuo mondo</h2>
+    <p class="lead mb16">Mandaci un’immagine, un logo o un’idea: lo vettorializziamo, adattiamo alla parete e stampiamo in ABS/TPU/PLA.</p>
+    <div class="grid cols-2">
+      <div class="card"><div class="body">
+        <h3>Come funziona</h3>
+        <ol>
+          <li>Ci invii foto/logo + misura desiderata.</li>
+          <li>Ti mandiamo bozza e preventivo.</li>
+          <li>Confermi → stampa → spedizione.</li>
+        </ol>
+        <div class="actions">
+          <a class="btn wa" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20personalizzare%20una%20Wall-Art.">WhatsApp</a>
+          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Personalizzazione%20Wall-Art">Email</a>
+        </div>
+      </div></div>
+      <div class="card"><div class="body">
+        <h3>Cerca ispirazioni</h3>
+        <p>Se vuoi una base da personalizzare, esplora e inviaci il link:</p>
+        <ul>
+          <li><a href="https://www.printables.com/search?category=decor" target="_blank">Printables</a></li>
+          <li><a href="https://www.thingiverse.com/search?q=wall+art&type=things" target="_blank">Thingiverse</a></li>
+          <li><a href="https://cults3d.com/en/search?q=wall%20art" target="_blank">Cults3D</a></li>
+        </ul>
+      </div></div>
+    </div>
+    <p class="mb24"></p>
+    <a class="btn" data-route="home" href="/">← Torna alla Home</a>
+  </section>
 </section>
 
-<!-- CONTATTI -->
-<footer id="contatti">
-  <p>Vuoi una creazione personalizzata?<br>
-  Scrivici per idee, bozze o ordini.</p>
-  <p><a href="https://wa.me/393518689785">+39 351 868 9785</a> · 
-     <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a></p>
-  <p>© 2025 M3DV Solution · MDV Revolution</p>
+<!-- RIPRODUCIAMO -->
+<section id="riproduciamo" class="view hidden">
+  <section class="section">
+    <h2 class="mb8">Riproduciamo l’introvabile</h2>
+    <p class="lead mb16">Ricambi fuori produzione? Clip, cerniere, tappi, supporti: li scansiamo/ricreiamo e stampiamo.</p>
+    <div class="grid cols-2">
+      <div class="card"><div class="body">
+        <h3>Cosa ci serve</h3>
+        <ul>
+          <li>Foto del pezzo (fronte, retro, lato).</li>
+          <li>Misure principali (o il pezzo rotto).</li>
+          <li>Materiale preferito (ABS/ASA/PETG/TPU).</li>
+        </ul>
+        <a class="btn wa" href="https://wa.me/393518689785?text=Ciao!%20Ho%20un%20ricambio%20da%20riprodurre.">Scrivici su WhatsApp</a>
+      </div></div>
+      <div class="card"><div class="body">
+        <h3>Se trovi già il modello</h3>
+        <p>Invia il link della pagina, recuperiamo noi i file:</p>
+        <ul>
+          <li><a href="https://www.printables.com/" target="_blank">Printables</a></li>
+          <li><a href="https://www.thingiverse.com/" target="_blank">Thingiverse</a></li>
+          <li><a href="https://www.myminifactory.com/" target="_blank">MyMiniFactory</a></li>
+        </ul>
+        <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Riproduzione%20ricambio&body=Ecco%20il%20link:">Invia via Email</a>
+      </div></div>
+    </div>
+    <p class="mb24"></p>
+    <a class="btn" data-route="home" href="/">← Torna alla Home</a>
+  </section>
+</section>
+
+<!-- INVENTIAMO -->
+<section id="inventiamo" class="view hidden">
+  <section class="section">
+    <h2 class="mb8">Inventiamo insieme</h2>
+    <p class="lead mb16">Co-progettiamo: dal bozzetto al prototipo, fino al pezzo finale.</p>
+    <div class="grid cols-2">
+      <div class="card"><div class="body">
+        <h3>Bozza veloce</h3>
+        <div style="border:2px dashed var(--line);border-radius:10px;height:220px;display:flex;align-items:center;justify-content:center;color:var(--muted)">
+          (Lavagnetta interattiva in arrivo)
+        </div>
+        <p class="mb8"></p>
+        <a class="btn wa" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20inventare%20un%20prodotto.">Proponi la tua idea</a>
+      </div></div>
+      <div class="card"><div class="body">
+        <h3>Materiali e finiture</h3>
+        <ul>
+          <li>ABS/ASA per parti robuste, PETG per uso esterno, TPU per flessibili.</li>
+          <li>Layer 0.20 standard – 0.12 fine – 0.28 draft.</li>
+          <li>Colori: nero, bianco; altri su richiesta.</li>
+        </ul>
+      </div></div>
+    </div>
+    <p class="mb24"></p>
+    <a class="btn" data-route="home" href="/">← Torna alla Home</a>
+  </section>
+</section>
+
+<footer>
+  © 2025 M3DV Solution — MDV Revolution ·
+  <a href="https://wa.me/393518689785" target="_blank" rel="noopener">WhatsApp</a> ·
+  <a href="mailto:mdvsolutionpro@gmail.com">Email</a>
 </footer>
+
+<script>
+/* ====== Router + Lingua/Tema (LINK UNICO) ====== */
+(function(){
+  const qs = new URLSearchParams(location.search);
+  const lang  = (qs.get("lang")  || localStorage.getItem("m3dv:lang")  || "it").toLowerCase();
+  const theme = (qs.get("theme") || localStorage.getItem("m3dv:theme") || "light").toLowerCase();
+  const page  = (qs.get("p")     || "home").toLowerCase();
+
+  document.documentElement.setAttribute("lang", lang);
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem("m3dv:lang", lang);
+  localStorage.setItem("m3dv:theme", theme);
+
+  // riscrive i link di menu per preservare lang/theme
+  function rewriteLinks(){
+    const base = new URLSearchParams({lang, theme});
+    document.querySelectorAll('a[data-route]').forEach(a=>{
+      const p = a.getAttribute('data-route') || "home";
+      const url = "/?p=" + encodeURIComponent(p) + "&" + base.toString();
+      a.href = url;
+    });
+  }
+
+  // mostra solo la vista richiesta
+  function showView(id){
+    document.querySelectorAll('.view').forEach(v=>v.classList.add('hidden'));
+    const el = document.getElementById(id) || document.getElementById('home');
+    el.classList.remove('hidden');
+    // scroll top soft
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // toggle tema
+  document.getElementById('themeBtn').addEventListener('click', ()=>{
+    const next = (document.documentElement.dataset.theme === 'dark') ? 'light' : 'dark';
+    const params = new URLSearchParams(location.search);
+    params.set('theme', next);
+    localStorage.setItem("m3dv:theme", next);
+    location.search = params.toString(); // ricarica mantenendo p/lang
+  });
+
+  // toggle lingua (IT/EN demo veloce)
+  document.getElementById('langBtn').addEventListener('click', ()=>{
+    const next = (document.documentElement.getAttribute('lang') === 'it') ? 'en' : 'it';
+    const params = new URLSearchParams(location.search);
+    params.set('lang', next);
+    localStorage.setItem("m3dv:lang", next);
+    location.search = params.toString();
+  });
+
+  rewriteLinks();
+  showView(page);
+
+  // semplice i18n demo (solo hero + titoli principali)
+  if(lang === 'en'){
+    document.getElementById('hTitle').textContent = 'Imagine • Customize • Reproduce';
+    document.getElementById('hDesc').textContent  = 'Every idea can take shape in 3D: unique customizations, hard-to-find spare parts and handcrafted prototypes. ABS, PETG, ASA and TPU on Prusa MK4S.';
+    document.getElementById('howTitle').textContent = 'How it works';
+  }
+})();
+</script>
+
+<script>
+/* ====== Wall-Art: popolamento card via JS ====== */
+(function(){
+  const PHONE = "393518689785";
+  const MAIL  = "mdvsolutionpro@gmail.com";
+  const PAYPAL_LINK = "#"; // sostituisci con il tuo PayPal.me o Payment Link
+
+  const PRODUCTS = [
+    {
+      title:"Ciclista su montagna",
+      file:"/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg",
+      alt:"Wall-Art 3D ciclista su montagna in ABS nero 25×20 cm",
+      price:"10 € + sped.",
+      buy:"Acquista 11 €"
+    },
+    {
+      title:"Luna decorata",
+      file:"/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg",
+      alt:"Wall-Art 3D luna decorata in ABS nero 25×20 cm",
+      price:"10 € + sped.",
+      buy:"Acquista 11 €"
+    },
+    {
+      title:"Albero della Vita",
+      file:"/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg",
+      alt:"Wall-Art 3D Albero della Vita in ABS nero 25×20 cm",
+      price:"10 € + sped.",
+      buy:"Acquista 11 €"
+    }
+  ];
+
+  const $grid = document.getElementById('wallGrid');
+  if(!$grid) return;
+
+  const enc = s => encodeURIComponent(s||"");
+  const tpl = p => `
+    <article class="card">
+      <img loading="lazy" class="thumb" src="${p.file}" alt="${p.alt}" onerror="this.style.display='none'">
+      <div class="body">
+        <div class="ttl">${p.title}</div>
+        <div class="price">${p.price}</div>
+        <div class="actions">
+          <a class="btn wa"   href="https://wa.me/${PHONE}?text=${enc('Ciao! Vorrei ordinare la Wall-Art ' + p.title)}" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="btn mail" href="mailto:${MAIL}?subject=${enc('Ordine Wall-Art ' + p.title)}">Email</a>
+          <a class="btn pay"  href="${PAYPAL_LINK}" target="_blank" rel="noopener">${p.buy}</a>
+        </div>
+      </div>
+    </article>`;
+
+  $grid.innerHTML = PRODUCTS.map(tpl).join('');
+})();
+</script>
 
 </body>
 </html>
