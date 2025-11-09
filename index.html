@@ -1,300 +1,320 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>M3DV Solution — Immagina • Personalizza • Riproduci</title>
-<meta name="theme-color" content="#222">
+<meta name="description" content="Stampe 3D su misura: Wall-Art 3D, personalizzazioni, riproduzioni di pezzi introvabili e invenzioni su commissione.">
 <style>
   :root{
-    --bg:#f3f4f6;         /* grigio chiaro */
-    --card:#ffffff;
-    --ink:#111827;
-    --muted:#6b7280;
-    --brand:#ffd400;      /* giallo fluo */
-    --accent:#e2211c;     /* rosso */
-    --ok:#25d366;         /* WhatsApp */
-    --link:#0b74d6;       /* Email */
-    --radius:14px;
-    --shadow:0 6px 18px rgba(0,0,0,.08);
+    --brand:#ffd500; --accent:#e53935;
+    --ink:#1f2937; --muted:#6b7280; --bg:#f5f6f7; --card:#fff;
+    --radius:14px; --shadow:0 6px 24px rgba(0,0,0,.09);
   }
-  [data-theme="dark"]{
-    --bg:#0f1115; --card:#171a21; --ink:#f9fafb; --muted:#a6adbb;
-    --shadow:0 8px 28px rgba(0,0,0,.35);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font:16px/1.45 system-ui,Arial,Segoe UI; background:var(--bg); color:var(--ink)}
-  a{color:var(--link); text-decoration:none}
-  .wrap{max-width:1200px;margin:0 auto;padding:18px}
-  /* Topbar */
-  .top{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.5)}
-  .nav{backdrop-filter:saturate(180%) blur(8px); background:rgba(0,0,0,.35)}
-  .bar{display:flex;align-items:center;gap:12px;justify-content:space-between; padding:10px 16px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px}
-  .logo{width:36px;height:24px;border-radius:6px;background:linear-gradient(90deg,var(--brand),#ffe760); box-shadow:0 0 0 2px #000 inset}
-  .brand span{color:#fff}
-  .menu a{color:#fff;opacity:.9;margin:0 10px}
-  .chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:8px 12px;background:var(--card);box-shadow:var(--shadow)}
-  .chip b{font-weight:800}
-  .pill{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:10px 16px;font-weight:700}
-  .btn{display:inline-block;border-radius:10px;padding:10px 14px;font-weight:700}
-  .btn.ok{background:var(--ok);color:#fff}
-  .btn.mail{background:var(--link);color:#fff}
-  .btn.buy{background:var(--accent);color:#fff}
-  .ghost{background:transparent;border:1px solid rgba(0,0,0,.15);color:var(--ink)}
-  /* Hero */
-  .hero{position:relative;overflow:hidden;border-radius:18px;margin-top:14px;background:
-    radial-gradient(1200px 400px at 20% 20%, rgba(255,212,0,.20),transparent 60%),
-    radial-gradient(900px 360px at 80% 60%, rgba(226,33,28,.14),transparent 60%), 
-    linear-gradient(180deg,var(--card),var(--card))}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:center}
-  .hero .card{padding:24px}
-  .h1{font-size:clamp(28px,4vw,40px);margin:0 0 8px}
+  *,*:before,*:after{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+  /* header */
+  .top{position:sticky;top:0;z-index:30;background:#111;color:#fff}
+  .bar{display:flex;align-items:center;gap:14px;justify-content:space-between;padding:10px 16px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800}
+  .logo-badge{background:var(--brand);color:#111;font-weight:900;border-radius:8px;padding:4px 8px}
+  nav a{opacity:.9;padding:8px 10px;border-radius:10px}
+  nav a:hover{background:#1b1b1b}
+  .cta{background:var(--brand);color:#111;padding:8px 12px;border-radius:10px;font-weight:700}
+  /* hero */
+  .hero{padding:26px 0 8px}
+  .grid{display:grid;gap:18px;grid-template-columns:1.1fr .9fr}
+  .panel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+  .kicker{display:inline-block;background:#ffe680;color:#3a2e00;font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:8px}
+  h1{margin:.1em 0 .4em;font-size:clamp(24px,4.4vw,34px);line-height:1.15}
+  .hero p{color:var(--muted);margin:.4em 0}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;font-weight:700;margin-right:8px;margin-top:6px}
+  .btn.whats{background:#25d366;color:#fff}
+  .btn.mail{background:#0078d7;color:#fff}
+  .tips{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;color:#667085;font-size:14px}
+  .imgfit{width:100%;height:100%;object-fit:cover;border-radius:12px}
+  /* chooser */
+  .chooser{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:6px 0 22px}
+  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+  .card h3{margin:0 0 6px}
   .muted{color:var(--muted)}
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:10px}
-  .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-  .card .pad{padding:14px}
-  .badge{display:inline-block;background:var(--brand);padding:6px 10px;border-radius:999px;font-weight:800}
-  /* Gallery */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  figure{margin:0;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+  /* search widget */
+  .search{display:flex;gap:8px;margin-top:10px}
+  .search input{flex:1;border:1px solid #d6d7da;border-radius:12px;padding:12px 14px;font-size:16px;background:#fff}
+  .search .go{background:#111;color:#fff;border:none;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
+  .site-buttons{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .chip{background:#111;color:#fff;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}
+  .hint{font-size:12.5px;color:#6b7280;margin-top:8px}
+  /* gallery */
+  .section{padding:24px 0}
+  .section h2{margin:0 0 6px}
+  .gridCards{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  figure{background:#fff;margin:0;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:transform .15s}
+  figure:hover{transform:translateY(-2px)}
   figure img{width:100%;display:block}
-  figcaption{padding:12px}
-  .ttl{font-weight:800}
-  .price{margin-top:2px}
-  .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-  /* Footer */
-  footer{margin:26px 0 40px;color:var(--muted);text-align:center}
-  .foot-links{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-  /* Theme toggle */
-  .toggle{cursor:pointer;border:none;background:var(--brand);color:#000;font-weight:800;border-radius:999px;padding:8px 12px}
-  .section-title{margin:26px 0 6px}
+  figcaption{padding:10px 12px}
+  .title{font-weight:800}
+  .price{font-size:14px;color:#555}
+  .buy{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+  .btn.buywa{background:#25d366;color:#fff}
+  .btn.buymail{background:#0078d7;color:#fff}
+  .btn.buyred{background:var(--accent);color:#fff}
+  .anchor{scroll-margin-top:76px}
+  footer{margin:26px 0 60px}
+  .ctaLine{background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:16px;display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- Topbar -->
-<header class="top nav">
+<header class="top">
   <div class="bar wrap">
-    <div class="brand"><div class="logo"></div><span>M3DV <b>Solution</b></span></div>
-    <nav class="menu" aria-label="Principale">
+    <div class="logo"><span class="logo-badge">M3DV</span> <span>Solution</span></div>
+    <nav>
       <a href="#home">Home</a>
       <a href="#wallart">Wall-Art</a>
       <a href="#personalizziamo">Personalizziamo</a>
       <a href="#riproduciamo">Riproduciamo</a>
       <a href="#inventiamo">Inventiamo</a>
-      <a href="#contatti">Contatti</a>
+      <a class="cta" href="#contatti">Contatti</a>
     </nav>
-    <button class="toggle" onclick="toggleTheme()" title="Tema chiaro/scuro">☀︎/☾</button>
   </div>
 </header>
 
-<main id="home" class="wrap">
-
-  <!-- HERO: Story -->
-  <section class="hero card">
-    <div class="hero-grid">
-      <div class="card">
-        <span class="badge">Personalizziamo il tuo mondo</span>
-        <h1 class="h1">Hai in mente un oggetto speciale che non esiste (ancora)?</h1>
-        <p class="muted">Dalla foto al pezzo finito: <b>immaginiamo, progettiamo e stampiamo in 3D</b>.
-          Se è introvabile o non più in commercio, lo <b>riproduciamo su misura</b>.
-          Se vuoi qualcosa di unico, lo <b>inventiamo insieme</b>.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
-          <a class="pill" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20un%20preventivo%20per%20una%20stampa%203D%20personalizzata.">Scrivici su WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Richiesta%20info%20stampa%203D">Email</a>
-        </div>
-        <p class="muted" style="margin-top:10px">Rispondiamo velocemente • Preventivo gratuito • Spedizione in tutta Italia</p>
+<main id="home" class="wrap hero">
+  <div class="grid">
+    <div class="panel">
+      <span class="kicker">Personalizziamo il tuo mondo</span>
+      <h1>Hai in mente un oggetto speciale che non esiste (ancora)?</h1>
+      <p>Dalla foto al pezzo finito: immaginiamo, progettiamo e stampiamo in 3D. Se è introvabile o fuori produzione lo <b>riproduciamo</b> su misura. Se vuoi qualcosa di unico, lo <b>inventiamo insieme</b>.</p>
+      <div>
+        <a class="btn whats" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20info%20su%20una%20stampa%203D%20personalizzata.">Scrivici su WhatsApp</a>
+        <a class="btn mail"  href="mailto:mdvsolutionpro@gmail.com?subject=Info%20stampa%203D&body=Ciao%2C%20ti%20allego%20foto%2Fmisure%20e%20idea.">Scrivici via Email</a>
       </div>
-      <div class="card" style="padding:0">
-        <img src="/IMAGE/WALLART/wallart_collection_1.jpg" alt="Esempi di Wall-Art 3D">
+      <div class="tips">
+        <span>• Rispondiamo velocemente</span>
+        <span>• Preventivo gratuito</span>
+        <span>• Spedizione in tutta Italia</span>
       </div>
     </div>
-  </section>
+    <div class="panel" style="display:flex;align-items:center;justify-content:center">
+      <img class="imgfit" src="/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg" alt="Esempi di Wall-Art 3D">
+    </div>
+  </div>
+</main>
 
-  <!-- 3 macro categorie -->
-  <h2 class="section-title">Scegli come vuoi partire</h2>
-  <section class="cards">
-    <article id="personalizziamo" class="card">
-      <div class="pad">
-        <div class="ttl">Personalizziamo</div>
-        <p class="muted">Nomi, loghi, scritte, regali. Mandaci un’idea o un disegno:
-          prepariamo la bozza e te la facciamo approvare prima della stampa.</p>
-        <div class="btns">
-          <a class="btn ok" href="https://wa.me/393518689785?text=Vorrei%20personalizzare%20un%20oggetto">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Personalizzazione">Email</a>
-        </div>
+<section class="wrap section">
+  <div class="chooser">
+    <div class="card">
+      <h3 id="personalizziamo" class="anchor">Personalizziamo</h3>
+      <p class="muted">Nomi, loghi, scritte, regali. Mandi un’idea o un disegno: prepariamo la bozza e la fai approvare prima della stampa.</p>
+      <div class="search">
+        <input id="q1" placeholder="Cerca il tuo modello (es. moon mandala, phone mount)">
+        <button class="go" onclick="openSearch('q1')">Cerca</button>
       </div>
-    </article>
-    <article id="riproduciamo" class="card">
-      <div class="pad">
-        <div class="ttl">Riproduciamo l’introvabile</div>
-        <p class="muted">Ricambi fuori produzione? Pezzi rotti? Scatta una foto con misura
-          e ti diciamo se si può rifare in 3D.</p>
-        <div class="btns">
-          <a class="btn ok" href="https://wa.me/393518689785?text=Devo%20riprodurre%20un%20ricambio%20introvabile">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Riproduzione%20ricambio">Email</a>
-        </div>
+      <div class="site-buttons">
+        <span class="chip" onclick="openSite('printables','q1')">Printables</span>
+        <span class="chip" onclick="openSite('thingiverse','q1')">Thingiverse</span>
+        <span class="chip" onclick="openSite('mmf','q1')">MyMiniFactory</span>
+        <span class="chip" onclick="openSite('thangs','q1')">Thangs</span>
+        <span class="chip" onclick="openSite('grabcad','q1')">GrabCAD</span>
       </div>
-    </article>
-    <article id="inventiamo" class="card">
-      <div class="pad">
-        <div class="ttl">Inventiamo insieme</div>
-        <p class="muted">Accessori, supporti, soluzioni su misura. Partiamo da zero e progettiamo
-          con te. Rendering, prototipo e stampa finale.</p>
-        <div class="btns">
-          <a class="btn ok" href="https://wa.me/393518689785?text=Vorrei%20progettare%20un%20nuovo%20oggetto">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Nuovo%20progetto%203D">Email</a>
-        </div>
-      </div>
-    </article>
-  </section>
+      <div class="hint">Suggerimento: nei risultati attiva i filtri “Commercial use / CC0 / No restrictions” quando disponibili.</div>
+    </div>
 
-  <!-- WALL-ART -->
-  <h2 id="wallart" class="section-title">Wall-Art 3D</h2>
-  <p class="muted" style="margin-top:-6px">
-    Formato standard 25×20 cm in ABS nero • Prezzo: <b>10 € + spedizione</b> (oppure <b>11 € tutto incluso</b>).
-  </p>
+    <div class="card">
+      <h3 id="riproduciamo" class="anchor">Riproduciamo l’introvabile</h3>
+      <p class="muted">Ricambi fuori produzione? Pezzi rotti? Scatta una foto con misure e ti diciamo se si può rifare in 3D.</p>
+      <div class="search">
+        <input id="q2" placeholder="Cerca un ricambio (es. manopola forno Candy)">
+        <button class="go" onclick="openSearch('q2')">Cerca</button>
+      </div>
+      <div class="site-buttons">
+        <span class="chip" onclick="openSite('printables','q2')">Printables</span>
+        <span class="chip" onclick="openSite('thingiverse','q2')">Thingiverse</span>
+        <span class="chip" onclick="openSite('mmf','q2')">MyMiniFactory</span>
+        <span class="chip" onclick="openSite('thangs','q2')">Thangs</span>
+        <span class="chip" onclick="openSite('grabcad','q2')">GrabCAD</span>
+      </div>
+      <div class="hint">Nei risultati applica il filtro di licenza per uso commerciale, quando disponibile.</div>
+    </div>
 
-  <section class="grid" aria-label="Galleria Wall-Art">
-    <!-- Collection cover 1 -->
+    <div class="card">
+      <h3 id="inventiamo" class="anchor">Inventiamo insieme</h3>
+      <p class="muted">Accessori, supporti, soluzioni su misura. Partiamo da zero e progettiamo con te: rendering, prototipo e stampa finale.</p>
+      <div class="search">
+        <input id="q3" placeholder="Cerca ispirazione (es. wall art forest, camera mount)">
+        <button class="go" onclick="openSearch('q3')">Cerca</button>
+      </div>
+      <div class="site-buttons">
+        <span class="chip" onclick="openSite('printables','q3')">Printables</span>
+        <span class="chip" onclick="openSite('thingiverse','q3')">Thingiverse</span>
+        <span class="chip" onclick="openSite('mmf','q3')">MyMiniFactory</span>
+        <span class="chip" onclick="openSite('thangs','q3')">Thangs</span>
+        <span class="chip" onclick="openSite('grabcad','q3')">GrabCAD</span>
+      </div>
+      <div class="hint">Vuoi disegnare a mano? Mandaci uno schizzo: lo trasformiamo in 3D.</div>
+    </div>
+  </div>
+</section>
+
+<section id="wallart" class="wrap section anchor">
+  <h2 style="margin:0">Wall-Art 3D</h2>
+  <p class="muted" style="margin:6px 0 16px">Formato standard 25×20 cm in ABS nero • Prezzo: <b>10 € + spedizione</b> (oppure <b>11 € tutto incluso</b>).</p>
+
+  <div class="gridCards">
+    <!-- Set 1 -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_collection_1.jpg" alt="Wall-Art Collection – Set 1" loading="lazy">
+      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg" alt="Wall-Art Collection — Set 1">
       <figcaption>
-        <div class="ttl">Wall-Art Collection – Set 1</div>
-        <div class="muted">Luna Ghiri, Lupi, Albero della Vita…</div>
+        <div class="title">Wall-Art Collection — Set 1</div>
+        <div class="price">Esempi: Luna Ghiri, Lupi, Albero della Vita…</div>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20il%20Set%201%20Wall-Art">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Set%201%20Wall-Art">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
+        </div>
       </figcaption>
     </figure>
 
-    <!-- Collection cover 2 -->
+    <!-- Set 2 -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_collection_2.jpg" alt="Wall-Art Collection – Set 2" loading="lazy">
+      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~6.jpg" alt="Wall-Art Collection — Set 2">
       <figcaption>
-        <div class="ttl">Wall-Art Collection – Set 2</div>
-        <div class="muted">Groot, DeLorean, Motocross…</div>
+        <div class="title">Wall-Art Collection — Set 2</div>
+        <div class="price">Esempi: Groot, DeLorean, Motocross…</div>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20il%20Set%202%20Wall-Art">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Set%202%20Wall-Art">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
+        </div>
       </figcaption>
     </figure>
 
     <!-- Motocross -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_motocross.jpg" alt="Motocross" loading="lazy">
+      <img src="/IMAGE/WALLART/Img_2025_11_05_00_19_02~2.jpeg" alt="Motocross">
       <figcaption>
-        <div class="ttl">Motocross</div>
+        <div class="title">Motocross</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Motocross">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Motocross">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20Motocross%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20Motocross">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Motocross">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
 
     <!-- Groot -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_groot.jpg" alt="Groot" loading="lazy">
+      <img src="/IMAGE/WALLART/Img_2025_11_05_00_17_05~2.jpeg" alt="Groot">
       <figcaption>
-        <div class="ttl">Groot</div>
+        <div class="title">Groot</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Groot">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Groot">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20Groot%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20Groot">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Groot">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
 
     <!-- DeLorean -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_delorean.jpg" alt="DeLorean" loading="lazy">
+      <img src="/IMAGE/WALLART/Img_2025_11_05_00_17_18~2.jpeg" alt="DeLorean">
       <figcaption>
-        <div class="ttl">DeLorean</div>
+        <div class="title">DeLorean</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20DeLorean">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20DeLorean">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20DeLorean%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20DeLorean">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20DeLorean">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
 
     <!-- Lupi -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_lupi.jpg" alt="Lupi" loading="lazy">
+      <img src="/IMAGE/WALLART/Img_2025_11_05_00_17_44~2.jpeg" alt="Lupi">
       <figcaption>
-        <div class="ttl">Lupi</div>
+        <div class="title">Lupi</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Lupi">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Lupi">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20Lupi%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20Lupi">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Lupi">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
 
     <!-- Luna Ghiri -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_luna_ghiri.jpg" alt="Luna Ghiri" loading="lazy">
+      <img src="/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg" alt="Luna Ghiri">
       <figcaption>
-        <div class="ttl">Luna Ghiri</div>
+        <div class="title">Luna Ghiri</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Luna%20Ghiri">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Luna%20Ghiri">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20Luna%20Ghiri%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20Luna%20Ghiri">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Luna%20Ghiri">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
 
     <!-- Chitarra Lake -->
     <figure>
-      <img src="/IMAGE/WALLART/wallart_chitarra_lake.jpg" alt="Chitarra Lake" loading="lazy">
+      <img src="/IMAGE/WALLART/Img_2025_11_05_00_16_57~2.jpeg" alt="Chitarra Lake">
       <figcaption>
-        <div class="ttl">Chitarra Lake</div>
+        <div class="title">Chitarra Lake</div>
         <div class="price">10 € + spedizione</div>
-        <div class="btns">
-          <a class="btn ok"  href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Chitarra%20Lake">WhatsApp</a>
-          <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Chitarra%20Lake">Email</a>
-          <a class="btn buy" href="https://wa.me/393518689785?text=Acquisto%20Chitarra%20Lake%20(11%E2%82%AC%20tutto%20incluso)">Acquista 11 €</a>
+        <div class="buy">
+          <a class="btn buywa" href="https://wa.me/393518689785?text=Vorrei%20ordinare%20la%20Wall-Art%20Chitarra%20Lake">WhatsApp</a>
+          <a class="btn buymail" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Chitarra%20Lake">Email</a>
+          <a class="btn buyred" href="#">Acquista 11 €</a>
         </div>
       </figcaption>
     </figure>
-  </section>
-
-  <!-- Contatti -->
-  <section id="contatti" class="card" style="margin-top:26px">
-    <div class="pad" style="text-align:center">
-      <h3 style="margin:6px 0 0">Parliamone</h3>
-      <p class="muted" style="margin:6px 0 12px">Idee, preventivi, tempi e spedizioni.</p>
-      <div class="btns" style="justify-content:center">
-        <a class="btn ok"  href="https://wa.me/393518689785">+39 351 868 9785</a>
-        <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="wrap">
-  <div class="foot-links">
-    <span>© 2025 M3DV Solution — MDV Revolution</span>
-    <span>•</span>
-    <a href="#wallart">Wall-Art</a>
-    <span>•</span>
-    <a href="#personalizziamo">Personalizziamo</a>
-    <span>•</span>
-    <a href="#riproduciamo">Riproduciamo</a>
-    <span>•</span>
-    <a href="#inventiamo">Inventiamo</a>
   </div>
-</footer>
+</section>
+
+<section id="contatti" class="wrap section">
+  <div class="ctaLine">
+    <b>Parliamone</b> — Idee, preventivi, tempi e spedizioni.
+    <a class="btn whats" href="https://wa.me/393518689785">+39 351 868 9785</a>
+    <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a>
+  </div>
+</section>
+
+<footer class="wrap" style="color:#6b7280">© 2025 M3DV Solution — MDV Revolution</footer>
 
 <script>
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if(prefersDark) document.documentElement.setAttribute('data-theme','dark');
-  function toggleTheme(){
-    const r=document.documentElement;
-    r.dataset.theme = r.dataset.theme==='dark' ? '' : 'dark';
+  function enc(v){return encodeURIComponent(v.trim())}
+  function val(id){return document.getElementById(id).value}
+
+  // apre la stessa query su tutti i siti (si aprono nuove schede)
+  function openSearch(inputId){
+    const q = val(inputId); if(!q) return;
+    openSite('printables', inputId);
+    openSite('thingiverse', inputId);
+    openSite('mmf', inputId);
+    openSite('thangs', inputId);
+    openSite('grabcad', inputId);
+  }
+  function openSite(site,inputId){
+    const q = enc(val(inputId) || '');
+    let url = '';
+    switch(site){
+      case 'printables': url = 'https://www.printables.com/search?q='+q; break;
+      case 'thingiverse': url = 'https://www.thingiverse.com/search?q='+q+'&type=things'; break;
+      case 'mmf': url = 'https://www.myminifactory.com/search/?query='+q; break;
+      case 'thangs': url = 'https://thangs.com/search/'+q; break;
+      case 'grabcad': url = 'https://grabcad.com/library?query='+q; break;
+    }
+    if(url) window.open(url,'_blank');
   }
 </script>
+
 </body>
 </html>
