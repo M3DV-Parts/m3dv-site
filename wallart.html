@@ -1,231 +1,107 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Wall-Art 3D – M3DV Solution</title>
-  <meta name="description" content="Wall-Art 3D stampate in ABS 25×20 cm. 10 € + spedizione (oppure 11 € tutto incluso). Ordina via WhatsApp, Email o PayPal." />
+<!-- ===== WALL-ART COLLECTION (REPLACE THIS BLOCK) ===== -->
+<section id="wallart" class="wrap" style="max-width:1200px;margin:0 auto">
+  <h2 style="text-align:center;margin:10px 0 6px">Wall-Art 3D</h2>
+  <p style="text-align:center;color:#555;margin:0 0 20px">
+    Formato standard 25×20 cm in ABS nero • Prezzo: <strong>10 € + spedizione</strong> (oppure <strong>11 € tutto incluso</strong>).<br>
+    Scrivici per altre misure/modelli personalizzati.
+  </p>
 
-  <!-- Tema / lingua / routing -->
-  <script defer src="/settings.js"></script>
+  <div class="gallery" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px">
+    <!-- Collection cover 1 -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_collection_1.jpg" alt="Wall-Art Collection – set 1" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Wall-Art Collection – Set 1</div>
+        <div class="meta" style="color:#666;font-size:.92em">Esempi: Luna Ghiri, Lupi, Albero della Vita…</div>
+      </figcaption>
+    </figure>
 
-  <style>
-    :root { --bg:#f9fafb; --fg:#0f172a; --card:#ffffff; --muted:#64748b; --line:#e5e7eb; --ok:#25d366; --accent:#ef4444; --pp:#003087; }
-    html[data-theme="dark"] { --bg:#0b1220; --fg:#e5e7eb; --card:#0f172a; --muted:#94a3b8; --line:#1f2937; }
+    <!-- Collection cover 2 -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_collection_2.jpg" alt="Wall-Art Collection – set 2" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Wall-Art Collection – Set 2</div>
+        <div class="meta" style="color:#666;font-size:.92em">Esempi: Groot, DeLorean, Motocross…</div>
+      </figcaption>
+    </figure>
 
-    *{box-sizing:border-box}
-    body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;background:var(--bg);color:var(--fg);}
+    <!-- Motocross -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_motocross.jpg" alt="Motocross" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Motocross</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Motocross" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Motocross" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
 
-    /* Header mini */
-    .top{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.7);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-    html[data-theme="dark"] .top{background:rgba(11,18,32,.6)}
-    .wrap{max-width:1080px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--fg);font-weight:900}
-    .badge{background:#ffd400;color:#0f172a;padding:2px 6px;border-radius:6px;font-weight:900}
-    .back{color:var(--fg);text-decoration:none;border:1px solid var(--line);padding:8px 10px;border-radius:8px}
-<!-- Hero con storytelling -->
-<section class="intro-hero">
-  <div class="slides">
-    <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg')"></div>
-    <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg')"></div>
-    <div class="slide" style="background-image:url('/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg')"></div>
-    <div class="overlay">
-      <h1>Personalizziamo il tuo mondo.</h1>
-      <p>Qualsiasi cosa immagini, noi possiamo crearla.  
-      Dalla tua idea nasce un modello unico, stampato in 3D solo per te.</p>
-    </div>
+    <!-- Groot -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_groot.jpg" alt="Groot" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Groot</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Groot" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Groot" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- DeLorean -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_delorean.jpg" alt="DeLorean" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">DeLorean</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20DeLorean" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20DeLorean" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- Lupi -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_lupi.jpg" alt="Lupi" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Lupi</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Lupi" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Lupi" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- Luna Ghiri -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_luna_ghiri.jpg" alt="Luna Ghiri" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Luna Ghiri</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Luna%20Ghiri" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Luna%20Ghiri" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
+
+    <!-- Chitarra Lake -->
+    <figure style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 3px 10px rgba(0,0,0,.08)">
+      <img src="/IMAGE/WALLART/wallart_chitarra_lake.jpg" alt="Chitarra Lake" loading="lazy" style="width:100%;display:block">
+      <figcaption style="padding:10px">
+        <div class="ttl" style="font-weight:700">Chitarra Lake</div>
+        <div class="price" style="color:#222">10 € + spedizione</div>
+        <div class="btns" style="margin-top:8px">
+          <a class="btn primary" href="https://wa.me/393518689785?text=Ciao!%20Vorrei%20ordinare%20la%20Wall-Art%20Chitarra%20Lake" style="background:#25d366;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">WhatsApp</a>
+          <a class="btn secondary" href="mailto:mdvsolutionpro@gmail.com?subject=Ordine%20Wall-Art%20Chitarra%20Lake" style="background:#0078d7;color:#fff;padding:6px 10px;border-radius:6px;text-decoration:none">Email</a>
+        </div>
+      </figcaption>
+    </figure>
   </div>
 </section>
-    /* Hero intro */
-    .hero{padding:20px 16px 6px;text-align:center}
-    .hero h1{margin:.2rem 0 .2rem;font-size:clamp(22px,3vw,30px)}
-    .hero p{margin:0;color:var(--muted)}
-
-    /* Gallery */
-    .gallery{padding:16px;max-width:1080px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.06);display:flex;flex-direction:column}
-    .thumb{aspect-ratio:1/1;object-fit:cover;width:100%;display:block;background:#1111}
-    .body{padding:12px 12px 10px}
-    .ttl{font-weight:700}
-    .price{color:var(--muted);font-size:.95rem;margin-top:2px}
-    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .btn{display:inline-block;text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:700;border:1px solid var(--line)}
-    .btn.wa{background:var(--ok);color:#fff;border-color:var(--ok)}
-    .btn.mail{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .btn.pp{background:var(--pp);color:#fff;border-color:var(--pp)}
-    .btn:hover{opacity:.92}
-
-    /* CTA finale */
-    .cta{max-width:1080px;margin:20px auto;padding:16px;border:1px dashed var(--line);border-radius:14px;text-align:center;background:linear-gradient(180deg,transparent,rgba(253,224,71,.12))}
-    html[data-theme="dark"] .cta{background:linear-gradient(180deg,transparent,rgba(253,224,71,.05))}
-    .cta .row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
-
-    footer{max-width:1080px;margin:18px auto 26px;padding:0 16px;color:var(--muted);text-align:center}
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <div class="top">
-    <div class="wrap">
-      <a class="brand" href="/"><span class="badge">M3DV</span><span>Solution</span></a>
-      <a class="back" href="/">← Torna alla Home</a>
-    </div>
-  </div>
-/* Intro Hero */
-.intro-hero {
-  position: relative;
-  height: 45vh;
-  overflow: hidden;
-  border-radius: 0 0 20px 20px;
-}
-.slides {
-  position: absolute;
-  inset: 0;
-}
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: fade 18s infinite;
-}
-.slide:nth-child(1){animation-delay:0s}
-.slide:nth-child(2){animation-delay:6s}
-.slide:nth-child(3){animation-delay:12s}
-
-@keyframes fade {
-  0%,33% {opacity:1;}
-  45%,100% {opacity:0;}
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,.2));
-  color: #fff;
-  padding: 20px;
-}
-.overlay h1 {
-  font-size: clamp(24px,4vw,36px);
-  margin-bottom: 10px;
-  color: #ffd400;
-}
-.overlay p {
-  font-size: clamp(14px,2vw,18px);
-  max-width: 700px;
-  color: #f1f5f9;
-}
-  <!-- Intro -->
-  <section class="hero">
-    <h1>Wall-Art 3D</h1>
-    <p>Formato standard 25×20 cm in ABS nero.<br>Prezzi: <strong>10 € + spedizione</strong> oppure <strong>11 € tutto incluso</strong>.</p>
-  </section>
-
-  <!-- Gallery (generata via JS) -->
-  <section class="gallery" id="gallery"></section>
-
-  <!-- CTA finale -->
-  <section class="cta">
-    <h3>Vuoi una Wall-Art personalizzata?</h3>
-    <p class="muted">Mandaci un’idea, una foto o un logo: facciamo bozza, prezzo, stampa e spedizione.</p>
-    <div class="row">
-      <a class="btn wa" href="https://wa.me/393518689785">Scrivici su WhatsApp</a>
-      <a class="btn mail" href="mailto:mdvsolutionpro@gmail.com?subject=Richiesta%20Wall-Art%20personalizzata">Scrivici via Email</a>
-    </div>
-  </section>
-
-  <footer>© M3DV Parts — MDV Solution · <a href="https://wa.me/393518689785">+39 351 868 9785</a> · <a href="mailto:mdvsolutionpro@gmail.com">mdvsolutionpro@gmail.com</a></footer>
-
-  <script>
-    // === CONFIG ===
-    const PHONE = "393518689785";
-    const MAIL  = "mdvsolutionpro@gmail.com";
-    // Sostituisci quando hai il tuo link PayPal (PayPal.me o Payment Link)
-    const PAYPAL_LINK = "https://www.paypal.com/paypalme/TUONOME/11"; // 11 € tutto incluso
-
-    // Lista prodotti (aggiungine altri copiando la riga e cambiando file/titolo)
-    // === WALL-ART COLLECTION ===
-const PRODUCTS = [
-  {
-    title: "Ciclista su montagna",
-    file:  "/IMAGE/WALLART/IMG-20251104-WA0005~3.jpg",
-    alt:   "Wall-Art 3D raffigurante un ciclista su montagna, stampata in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  },
-  {
-    title: "Luna decorata",
-    file:  "/IMAGE/WALLART/IMG-20251104-WA0005~4.jpg",
-    alt:   "Wall-Art 3D con una luna decorata e motivi geometrici, stampata in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  },
-  {
-    title: "Albero della Vita",
-    file:  "/IMAGE/WALLART/IMG-20251104-WA0005~5.jpg",
-    alt:   "Wall-Art 3D con Albero della Vita, simbolo di forza e rinascita, stampata in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  },
-  {
-    title: "Tramonto tra le montagne",
-    file:  "/IMAGE/WALLART/tramonto_monti.jpg",
-    alt:   "Stampa 3D decorativa con paesaggio al tramonto tra le montagne, in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  },
-  {
-    title: "Coppia di cavalli",
-    file:  "/IMAGE/WALLART/cavalli.jpg",
-    alt:   "Wall-Art 3D con due cavalli stilizzati, linee eleganti e pulite, stampata in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  },
-  {
-    title: "Fiore astratto",
-    file:  "/IMAGE/WALLART/fiore_astratto.jpg",
-    alt:   "Decorazione 3D astratta con motivi floreali, design moderno e minimal, stampata in ABS nero 25×20 cm",
-    price: "10 € + spedizione",
-    paypalText: "Acquista 11 €"
-  }
-];
-
-    // === RENDER ===
-    const $g = document.getElementById('gallery');
-
-    function enc(s){ return encodeURIComponent(s || ""); }
-
-    function itemHTML(p){
-      const wa = `https://wa.me/${PHONE}?text=${enc("Ciao! Vorrei ordinare la Wall-Art " + p.title)}`;
-      const em = `mailto:${MAIL}?subject=${enc("Ordine Wall-Art " + p.title)}`;
-      // PayPal: se hai link specifico per item, cambialo qui; altrimenti usa PAYPAL_LINK generale
-      const pp = PAYPAL_LINK;
-
-      return `
-        <article class="card">
-          <img loading="lazy" class="thumb" src="${p.file}" alt="${p.alt}" onerror="this.style.display='none'">
-          <div class="body">
-            <div class="ttl">${p.title}</div>
-            <div class="price">${p.price}</div>
-            <div class="actions">
-              <a class="btn wa"   href="${wa}" target="_blank" rel="noopener">WhatsApp</a>
-              <a class="btn mail" href="${em}">Email</a>
-              <a class="btn pp"   href="${pp}" target="_blank" rel="noopener">${p.paypalText || "PayPal"}</a>
-            </div>
-          </div>
-        </article>
-      `;
-    }
-
-    // Monta la lista
-    $g.innerHTML = PRODUCTS.map(itemHTML).join("");
-  </script>
-</body>
-</html>
+<!-- ===== /WALL-ART COLLECTION ===== -->
