@@ -10,7 +10,6 @@
   *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,Arial}
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-
   /* NAV */
   header{position:sticky;top:0;z-index:20;background:#111;color:#fff}
   nav.wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
@@ -18,38 +17,28 @@
   .badge{background:var(--brand);color:#111;border-radius:8px;padding:4px 8px}
   .menu a{padding:8px 10px;border-radius:10px;opacity:.95}
   .menu a:hover{background:#1b1b1b}
-
-  /* HERO */
+  /* HERO pannello unico */
   .hero{position:relative;min-height:68vh;display:flex;align-items:center}
   .panel{position:relative;background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:22px;max-width:680px}
   .kicker{display:inline-block;background:#ffe680;color:#3a2e00;font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:8px}
   h1{margin:.1em 0 .3em;font-size:clamp(22px,4.4vw,36px);line-height:1.15}
   p{color:var(--muted);margin:.5em 0}
-
   /* sfondo moto a destra */
   .moto{
-    position:absolute; inset:0; pointer-events:none;
+    position:absolute; inset:0; pointer-events:none; 
     background:
       linear-gradient(90deg, rgba(246,247,248,1) 0%, rgba(246,247,248,.92) 48%, rgba(246,247,248,0) 66%),
-      url("/IMAGE/WALLART/IMG-20251104-WA0005~9.jpg") right center / contain no-repeat; /* 👈 cambia qui se serve */
+      url("/IMAGE/WALLART/Img_2025_11_05_00_19_02~2.jpeg") right center / contain no-repeat;
     opacity:.55;
   }
-
-  /* 3 CANALI */
-  .channels{padding:18px 0 28px}
-  .cards{display:grid;grid-template-columns:1fr;gap:14px}
-  @media(min-width:900px){.cards{grid-template-columns:repeat(3,1fr)}}
-  .card{background:var(--card);border-radius:var(--r);padding:18px;border:1px solid #e9ecef}
-  .card h3{margin:0 0 8px}
-  .card p{margin:0 0 14px;color:var(--muted)}
-  .go{display:inline-block;background:#111;color:#fff;border-radius:10px;padding:10px 12px}
-
-  /* FAB 🔍 */
-  .fab{position:fixed;right:18px;bottom:18px;z-index:30;width:56px;height:56px;border-radius:50%;
-       background:#111;color:#fff;display:flex;align-items:center;justify-content:center;
-       box-shadow:0 10px 28px rgba(0,0,0,.18);font-size:24px;cursor:pointer}
-
-  footer{padding:24px 0;color:#7a7f86;text-align:center}
+  /* fab search (solo 🔍) */
+  .fab{
+    position:fixed; right:18px; bottom:18px; z-index:30;
+    width:56px; height:56px; border-radius:50%;
+    background:#111; color:#fff; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 28px rgba(0,0,0,.18); font-size:24px; cursor:pointer;
+  }
+  footer{padding:24px 0;color:#7a7f86}
 </style>
 </head>
 <body>
@@ -80,28 +69,7 @@
   </section>
 </main>
 
-<!-- 3 rettangoloni sotto -->
-<section class="wrap channels">
-  <div class="cards">
-    <article class="card">
-      <h3>Personalizziamo</h3>
-      <p>Nomi, loghi, scritte, regali: invia un’idea o un disegno, prepariamo la bozza e te la facciamo approvare prima della stampa.</p>
-      <a class="go" href="/personalizziamo.html">Vai alla pagina →</a>
-    </article>
-    <article class="card">
-      <h3>Riproduciamo l’introvabile</h3>
-      <p>Ricambi fuori produzione o rotti? Inviaci foto e misure: valutiamo se si può rifare in 3D e ti diamo tempi e costi.</p>
-      <a class="go" href="/riproduciamo.html">Vai alla pagina →</a>
-    </article>
-    <article class="card">
-      <h3>Inventiamo insieme</h3>
-      <p>Accessori, supporti, soluzioni su misura: partiamo da zero con concept, rendering, prototipo e stampa finale.</p>
-      <a class="go" href="/inventiamo.html">Vai alla pagina →</a>
-    </article>
-  </div>
-</section>
-
-<!-- SOLO 🔍 -->
+<!-- SOLO il 🔍 -->
 <button class="fab" title="Cerca un modello STL" onclick="startSearch()">🔍</button>
 
 <footer class="wrap">© 2025 M3DV Solution — MDV Revolution</footer>
@@ -114,7 +82,8 @@
       'https://www.printables.com/search?q='+k,
       'https://www.thingiverse.com/search?q='+k+'&type=things',
       'https://www.myminifactory.com/search/?query='+k,
-      'https://thangs.com/search/'+k
+      'https://thangs.com/search/'+k,
+      'https://grabcad.com/library?query='+k
     ];
     targets.forEach(u=>window.open(u,'_blank'));
   }
