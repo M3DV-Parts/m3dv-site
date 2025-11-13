@@ -1,111 +1,80 @@
 <!doctype html>
 <html lang="it">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>M3DV Solution — Make Business</title>
-  <meta name="description" content="Compravendita curata da M3DV: ciclomotori d’epoca, ricambi, oggetti vintage e occasioni selezionate.">
-  <link rel="stylesheet" href="style.css">
-  <style>
-    main.wrap{
-      margin-top:40px;
-      margin-bottom:60px;
-    }
-    h1{
-      font-size:clamp(24px,4vw,30px);
-      margin-bottom:8px;
-    }
-    p.lead{
-      color:#676a6f;
-      max-width:680px;
-      margin-top:0;
-    }
-    .lang-switch{
-      margin-top:16px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .lang-switch button{
-      border-radius:999px;
-      border:1px solid #ddd;
-      padding:6px 12px;
-      background:#f6f7f8;
-      cursor:pointer;
-      font-size:14px;
-      display:flex;
-      align-items:center;
-      gap:6px;
-    }
-    .lang-switch button.active{
-      background:#ffd500;
-      border-color:#ffd500;
-      color:#111;
-      font-weight:600;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
-      margin-top:24px;
-    }
-    .card{
-      background:#fff;
-      border-radius:16px;
-      box-shadow:0 6px 24px rgba(0,0,0,.08);
-      padding:14px;
-      display:flex;
-      flex-direction:column;
-      height:100%;
-    }
-    .card img{
-      width:100%;
-      border-radius:12px;
-      object-fit:cover;
-      max-height:240px;
-    }
-    .card h3{
-      margin:12px 0 4px;
-      font-size:18px;
-    }
-    .price{
-      margin:0;
-      font-weight:600;
-      color:#444;
-    }
-    .card p.desc{
-      margin:6px 0 10px;
-      color:#676a6f;
-      font-size:14px;
-      flex-grow:1;
-    }
-    .cta{
-      margin-top:auto;
-      display:block;
-      background:#ffd500;
-      color:#111;
-      text-align:center;
-      padding:9px 10px;
-      border-radius:10px;
-      font-weight:600;
-    }
-    footer{
-      padding:20px 16px 30px;
-      color:#7a7f86;
-      text-align:center;
-      font-size:13px;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M3DV Solution – Make Business</title>
+<meta name="description" content="Compravendita curata da M3DV: ciclomotori d’epoca, ricambi, oggetti vintage e occasioni selezionate.">
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+  main.wrap {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  h1 {
+    font-size: clamp(24px, 4vw, 30px);
+    margin-bottom: 8px;
+  }
+  p.lead {
+    color: #676a6f;
+    max-width: 680px;
+    margin-top: 0;
+  }
+  .lang-box {
+    display: flex;
+    gap: 12px;
+    margin: 20px 0 25px;
+    align-items: center;
+  }
+  .lang-btn {
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background: #eee;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+  }
+  .lang-btn.active {
+    background: #ffd500;
+  }
+  .item-card {
+    background: #fff;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    margin-top: 25px;
+  }
+  .item-card img {
+    width: 100%;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  .cta {
+    margin-top: 18px;
+    display: block;
+    background: #ffd500;
+    color: #111;
+    text-align: center;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+</style>
 </head>
 
 <body>
 
 <header>
   <nav class="wrap">
-    <div class="logo">
-      <span class="badge">M3DV</span><span>Solution</span>
-    </div>
+    <div class="logo"><span class="badge">M3DV</span><span>Solution</span></div>
     <div class="menu">
       <a href="/index.html">Home</a>
       <a href="/wall-art.html">Wall-Art</a>
@@ -120,98 +89,43 @@
 </header>
 
 <main class="wrap">
+
   <h1>Make Business — Compravendita M3DV</h1>
   <p class="lead">
-    Selezioniamo ciclomotori d’epoca, ricambi, oggetti vintage e occasioni speciali.
+    Selezioniamo ciclomotori d’epoca, ricambi, oggetti vintage e occasioni speciali.  
     Ogni mezzo viene visionato dal nostro team prima di essere proposto.
   </p>
 
-  <!-- Switch lingua -->
-  <div class="lang-switch">
-    <span style="font-size:14px;color:#676a6f;">Lingua / Language:</span>
-    <button type="button" data-lang="it" class="active">🇮🇹 Italiano</button>
-    <button type="button" data-lang="en">🇬🇧 English</button>
+  <!-- Lingue -->
+  <div class="lang-box">
+    <a href="make-business.html" class="lang-btn active">🇮🇹 Italiano</a>
+    <a href="make-business-en.html" class="lang-btn">🇬🇧 English</a>
   </div>
 
-  <!-- SEZIONE ITALIANA -->
-  <section class="lang-section" id="lang-it">
-    <div class="grid">
+  <!-- *********** ITEM: MILANI TORNESE ************* -->
 
-      <!-- CARD TORNESI IT -->
-      <div class="card">
-        <img src="/IMAGE/BUSINESS/Screenshot_20251113-021321~2.jpg"
-             alt="Ciclomotore Milani Tornese vintage rosso">
-        <h3>Milani Tornese — ciclomotore d’epoca</h3>
-        <p class="price">Trattativa riservata</p>
-        <p class="desc">
-          Raro ciclomotore <b>Milani Tornese</b> in configurazione originale.
-          Rimasto fermo per molti anni al coperto, attualmente in fase di
-          riattivazione meccanica e restyling estetico leggero, nel rispetto
-          della patina d’epoca. Ideale per collezionisti e appassionati di mezzi
-          italiani anni ’70–’80.
-        </p>
-        <a class="cta"
-           href="https://wa.me/393518689785?text=Ciao%2C%20sono%20interessato%20al%20Milani%20Tornese%20d%27epoca">
-          Scrivici su WhatsApp per info e foto aggiornate
-        </a>
-      </div>
+  <div class="item-card">
+    <img src="/IMAGE/BUSINESS/Screenshot_20251113-021321~2.jpg" alt="Milani Tornese vintage moped">
 
-    </div>
-  </section>
+    <h2>Milani Tornese — ciclomotore d’epoca</h2>
+    <h3>Trattativa riservata</h3>
 
-  <!-- SEZIONE INGLESE -->
-  <section class="lang-section" id="lang-en" style="display:none">
-    <div class="grid">
+    <p>
+      Raro ciclomotore <b>Milani Tornese</b> in configurazione originale.  
+      Rimasto fermo per molti anni al coperto, è attualmente in fase di 
+      riattivazione meccanica con leggero restyling estetico nel rispetto 
+      della patina d’epoca.  
+      Ideale per collezionisti e appassionati di mezzi italiani anni ’70–’80.
+    </p>
 
-      <!-- CARD TORNESI EN -->
-      <div class="card">
-        <img src="/IMAGE/BUSINESS/Screenshot_20251113-021321~2.jpg"
-             alt="Milani Tornese vintage moped in red">
-        <h3>Milani Tornese — vintage moped</h3>
-        <p class="price">Price on request</p>
-        <p class="desc">
-          Rare <b>Milani Tornese</b> moped in original configuration.
-          Stored indoors for many years, now undergoing light mechanical
-          recommissioning and cosmetic refresh while keeping its period look.
-          A lovely project for collectors and classic Italian moped enthusiasts.
-        </p>
-        <a class="cta"
-           href="https://wa.me/393518689785?text=Hi%2C%20I%27m%20interested%20in%20the%20Milani%20Tornese%20vintage%20moped">
-          Message us on WhatsApp for details
-        </a>
-      </div>
+    <a class="cta" href="https://wa.me/393331234567?text=Ciao%2C%20sono%20interessato%20al%20Milani%20Tornese%20che%20avete%20in%20vendita.">
+      Scrivici su WhatsApp per info e foto
+    </a>
+  </div>
 
-    </div>
-  </section>
 </main>
 
-<!-- Bottone ricerca modelli 3D -->
-<button class="fab" title="Cerca un modello STL" onclick="startSearch()">🔍</button>
-
-<footer>
-  © 2025 M3DV Solution — MDV Revolution
-</footer>
-
-<script src="/settings.js"></script>
-<script>
-  // switch IT / EN
-  const buttons = document.querySelectorAll('.lang-switch button');
-  const sections = {
-    it: document.getElementById('lang-it'),
-    en: document.getElementById('lang-en')
-  };
-
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lang = btn.dataset.lang;
-      // attiva bottone
-      buttons.forEach(b => b.classList.toggle('active', b === btn));
-      // mostra sezione corretta
-      sections.it.style.display = (lang === 'it') ? 'block' : 'none';
-      sections.en.style.display = (lang === 'en') ? 'block' : 'none';
-    });
-  });
-</script>
+<button class="fab" onclick="startSearch()">🔍</button>
 
 </body>
 </html>
