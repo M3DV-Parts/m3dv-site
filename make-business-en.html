@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M3DV Solution – Make Business</title>
+<meta name="description" content="Curated trading by M3DV: vintage mopeds, spare parts, collectibles and special opportunities.">
+<link rel="stylesheet" href="style.css">
+<style>
+  main.wrap{
+    margin-top:40px;
+    margin-bottom:60px;
+  }
+  h1{
+    font-size:clamp(24px,4vw,30px);
+    margin-bottom:8px;
+  }
+  p.lead{
+    color:#676a6f;
+    max-width:680px;
+    margin-top:0;
+  }
+  .lang-switch{
+    margin:18px 0 10px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:600;
+  }
+  .lang-switch .lang{
+    border-radius:999px;
+    padding:6px 14px;
+    border:1px solid #d0d3da;
+    background:#f6f7f8;
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    cursor:pointer;
+  }
+  .lang-switch .lang.active{
+    background:#ffd500;
+    border-color:#ffd500;
+    color:#111;
+  }
+  .lang-switch .flag{
+    font-size:18px;
+  }
+  .card{
+    margin-top:20px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 8px 26px rgba(0,0,0,.10);
+    padding:18px;
+  }
+  .card img{
+    width:100%;
+    border-radius:14px;
+    display:block;
+  }
+  .card h2{
+    margin:16px 0 4px;
+    font-size:22px;
+  }
+  .card .subtitle{
+    font-weight:700;
+    color:#333;
+    margin-bottom:10px;
+  }
+  .card p{
+    color:#555;
+  }
+  .cta-whatsapp{
+    margin-top:18px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    background:#25d366;
+    color:#fff;
+    font-weight:600;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(37,211,102,.35);
+  }
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="wrap">
+    <div class="logo">
+      <span class="badge">M3DV</span><span>Solution</span>
+    </div>
+    <div class="menu">
+      <a href="/index.html">Home</a>
+      <a href="/wall-art.html">Wall-Art</a>
+      <a href="/personalizziamo.html">Personalizziamo</a>
+      <a href="/riproduciamo.html">Riproduciamo</a>
+      <a href="/inventiamo.html">Inventiamo</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/make-business.html"><b>Make Business</b></a>
+      <a href="/contatti.html">Contatti</a>
+    </div>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Make Business — M3DV Trading</h1>
+  <p class="lead">
+    We select vintage mopeds, spare parts, classic objects and special finds. 
+    Every vehicle is inspected by our team before being offered for sale.
+  </p>
+
+  <div class="lang-switch">
+    <span>Language:</span>
+    <a class="lang" href="make-business.html">
+      <span class="flag">🇮🇹</span> <span>Italiano</span>
+    </a>
+    <a class="lang active" href="make-business-en.html">
+      <span class="flag">🇬🇧</span> <span>English</span>
+    </a>
+  </div>
+
+  <article class="card">
+    <img src="/IMAGE/BUSINESS/Screenshot_20251113-021321~2.jpg" alt="Milani Tornese vintage moped in red, side view on blue studio background.">
+    <h2>Milani Tornese — vintage moped</h2>
+    <div class="subtitle">Price on request</div>
+    <p>
+      Rare <strong>Milani Tornese</strong> moped in its original configuration. 
+      Stored off the road for many years, now undergoing light mechanical recommissioning and a gentle cosmetic refresh, 
+      while preserving its period patina. Ideal for collectors and enthusiasts of Italian mopeds from the ’70s–’80s.
+    </p>
+    <p>
+      Engine starts and runs. Further checks and detailing are in progress in our workshop before delivery to the future owner.
+    </p>
+    <a class="cta-whatsapp" href="https://wa.me/393518689785?text=Hi%2C%20I%27m%20interested%20in%20the%20Milani%20Tornese%20moped">
+      💬 Contact us on WhatsApp for info &amp; extra photos
+    </a>
+  </article>
+</main>
+
+<button class="fab" onclick="startSearch()">🔍</button>
+
+<script>
+  /* same search utility used on the rest of the site */
+  function enc(s){return encodeURIComponent(s.trim())}
+  function openAll(q){
+    const k=enc(q);
+    const targets=[
+      'https://www.printables.com/search?q='+k,
+      'https://www.thingiverse.com/search?q='+k+'&type=things',
+      'https://www.myminifactory.com/search/?query='+k,
+      'https://thangs.com/search/'+k,
+      'https://grabcad.com/library?query='+k
+    ];
+    targets.forEach(u=>window.open(u,'_blank'));
+  }
+  function startSearch(){
+    const q = prompt('What model are you looking for? (e.g. wall art wolf, knob oven, phone mount)');
+    if(q && q.trim()) openAll(q);
+  }
+</script>
+</body>
+</html>
