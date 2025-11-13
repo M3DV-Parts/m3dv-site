@@ -152,7 +152,22 @@
   footer{padding:24px 0;color:#7a7f86;font-size:13px}
 </style>
 </head>
+<!-- Overlay lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="">
+</div>
 
+<script>
+  function openLightbox(src){
+    var img = document.getElementById('lightbox-img');
+    var box = document.getElementById('lightbox');
+    img.src = src;
+    box.style.display = 'flex';
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').style.display = 'none';
+  }
+</script>
 <body>
 
 <header>
