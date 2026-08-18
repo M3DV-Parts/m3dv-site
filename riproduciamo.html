@@ -1,69 +1,10 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Riproduciamo — M3DV</title>
-<style>
-  :root{--ink:#111;--bg:#f6f7f8;--card:#fff;--brand:#ffd500;--shadow:0 6px 24px rgba(0,0,0,.08);--r:16px}
-  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,Arial}
-  a{text-decoration:none;color:inherit} .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-  header{position:sticky;top:0;background:#111;color:#fff} nav.wrap{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:10px 0}
-  .badge{background:var(--brand);color:#111;border-radius:8px;padding:4px 8px;font-weight:900}
-  .menu a{padding:8px 10px;border-radius:10px;opacity:.95} .menu a:hover{background:#1b1b1b}
-  h1{margin:18px 0 6px}.muted{color:#676a6f}
-  .card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:16px;margin:16px 0}
-  .search{display:flex;gap:8px}
-  .search input{flex:1;border:1px solid #d6d7da;border-radius:10px;padding:10px 12px;background:#fff}
-  .search button{border:none;background:#111;color:#fff;border-radius:10px;padding:10px 14px;font-weight:800;cursor:pointer}
-  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-  .chip{background:#111;color:#fff;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer}
-  footer{padding:24px 0;color:#7a7f86}
-</style></head>
-<body>
-<header><nav class="wrap">
-  <div><span class="badge">M3DV</span> <span>Solution</span></div>
-  <div class="menu">
-    <a href="/index.html">Home</a><a href="/wall-art.html">Wall-Art</a>
-    <a href="/personalizziamo.html">Personalizziamo</a><a href="/riproduciamo.html">Riproduciamo</a>
-    <a href="/inventiamo.html">Inventiamo</a><a href="/gallery.html">Gallery</a><a href="/contatti.html">Contatti</a>
-  </div>
-</nav></header>
-
-<main class="wrap">
-  <h1>Riproduciamo l’introvabile</h1>
-  <p class="muted">Ricambi fuori produzione o rotti? Inviaci foto e misure principali: valutiamo fattibilità, materiale e tempi.</p>
-
-  <div class="card">
-    <h3>Cerca un riferimento simile</h3>
-    <div class="search"><input id="q" placeholder="Esempio: manopola forno Candy, cerniera scafale Ikea"><button onclick="go()">Cerca</button></div>
-    <div class="chips">
-      <span class="chip" onclick="site('printables')">Printables</span>
-      <span class="chip" onclick="site('thingiverse')">Thingiverse</span>
-      <span class="chip" onclick="site('mmf')">MyMiniFactory</span>
-      <span class="chip" onclick="site('thangs')">Thangs</span>
-      <span class="chip" onclick="site('grabcad')">GrabCAD</span>
-    </div>
-    <p class="muted" style="margin-top:6px">Consiglio: filtra per “free / commercial use” dove disponibile.</p>
-  </div>
-</main>
-
-<footer class="wrap">© 2025 M3DV Solution</footer>
-
-<script>
-  const v=id=>document.getElementById(id).value.trim(); const enc=s=>encodeURIComponent(s)
-  function go(){const q=v('q'); if(q) openAll(q);}
-  function openAll(q){const k=enc(q);[
-    'https://www.printables.com/search?q='+k,
-    'https://www.thingiverse.com/search?q='+k+'&type=things',
-    'https://www.myminifactory.com/search/?query='+k,
-    'https://thangs.com/search/'+k,
-    'https://grabcad.com/library?query='+k
-  ].forEach(u=>window.open(u,'_blank'))}
-  function site(s){const k=enc(v('q'));let u='';
-    if(s==='printables')u='https://www.printables.com/search?q='+k;
-    if(s==='thingiverse')u='https://www.thingiverse.com/search?q='+k+'&type=things';
-    if(s==='mmf')u='https://www.myminifactory.com/search/?query='+k;
-    if(s==='thangs')u='https://thangs.com/search/'+k;
-    if(s==='grabcad')u='https://grabcad.com/library?query='+k;
-    window.open(u,'_blank');
-  }
-</script>
-</body></html>
+<title>Riproduzione ricambi introvabili e pezzi rotti | M3DV</title><meta name="description" content="Riproduciamo ricambi fuori produzione, pezzi rotti e componenti introvabili tramite scansione, modellazione e stampa 3D. Valutazione da foto e misure."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://m3dv-site.vercel.app/riproduciamo.html">
+<style>:root{--ink:#111;--muted:#5f6368;--bg:#f6f7f8;--card:#fff;--brand:#ffd500;--green:#1faa59;--shadow:0 7px 25px rgba(0,0,0,.08)}*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,Arial,sans-serif}a{text-decoration:none;color:inherit}.wrap{max-width:1050px;margin:0 auto;padding:0 18px}header{position:sticky;top:0;z-index:10;background:#111;color:#fff}nav.wrap{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:11px 18px}.badge{background:var(--brand);color:#111;border-radius:8px;padding:4px 8px;font-weight:900}.menu{display:flex;gap:2px;flex-wrap:wrap}.menu a{padding:7px 9px;border-radius:9px}.menu a:hover{background:#252525}main{padding-top:45px;padding-bottom:55px}h1{font-size:clamp(32px,5vw,50px);line-height:1.08;margin:0 0 14px;max-width:820px}h2{margin:0 0 10px}.lead{font-size:19px;color:var(--muted);max-width:800px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0 38px}.btn{display:inline-flex;padding:12px 17px;border-radius:11px;font-weight:850}.btn-wa{background:var(--green);color:#fff}.btn-dark{background:#111;color:#fff}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin:22px 0 42px}.card{background:#fff;border-radius:14px;padding:21px;box-shadow:var(--shadow)}.card p,.note,p{color:var(--muted)}.examples{background:#fff;border-radius:15px;padding:24px;box-shadow:var(--shadow);margin:24px 0}.examples ul{columns:2;padding-left:21px}.examples li{margin:7px 0}.notice{border-left:5px solid var(--brand);background:#fff9db;border-radius:10px;padding:16px 18px;margin:22px 0}.faq{margin-top:42px}.faq details{background:#fff;border-radius:11px;padding:15px 18px;margin:9px 0;box-shadow:0 3px 15px rgba(0,0,0,.05)}.faq summary{font-weight:800;cursor:pointer}footer{padding:26px 18px;color:#6f747b}@media(max-width:760px){nav.wrap{align-items:flex-start;flex-direction:column}.grid{grid-template-columns:1fr}.examples ul{columns:1}}</style></head>
+<body><header><nav class="wrap"><a href="/"><span class="badge">M3DV</span> Solution</a><div class="menu"><a href="/">Home</a><a href="/riproduciamo.html">Ricambi introvabili</a><a href="/inventiamo.html">Prototipi</a><a href="/gallery.html">Gallery</a><a href="/contatti.html">Contatti</a></div></nav></header>
+<main class="wrap"><h1>Riproduciamo ricambi introvabili, pezzi rotti e componenti fuori produzione</h1><p class="lead">Non serve avere un file 3D. Partiamo dal pezzo originale, anche danneggiato, oppure da foto, misure e disegni. Valutiamo geometria, funzione e materiale prima di proporre la soluzione.</p><div class="actions"><a class="btn btn-wa" href="https://wa.me/393518689785?text=Ciao%20M3DV%2C%20vorrei%20riprodurre%20un%20ricambio.%20Vi%20invio%20foto%2C%20misure%20e%20informazioni%20sull%27utilizzo.">Invia foto e misure su WhatsApp</a><a class="btn btn-dark" href="mailto:mdvsolutionpro@gmail.com?subject=Richiesta%20riproduzione%20ricambio%20M3DV">Richiedi via email</a></div>
+<h2>Come lavoriamo</h2><div class="grid"><article class="card"><h3>1. Analisi del problema</h3><p>Identifichiamo funzione, punti di fissaggio, sollecitazioni, temperature e precisione necessaria.</p></article><article class="card"><h3>2. Acquisizione e modello 3D</h3><p>Scansioniamo o ridisegniamo il componente, ricostruendo le zone rotte e preparando un modello modificabile.</p></article><article class="card"><h3>3. Produzione e verifica</h3><p>Stampiamo il prototipo o il pezzo definitivo con il materiale scelto e controlliamo misure e montaggio.</p></article></div>
+<section class="examples"><h2>Esempi di richieste adatte</h2><ul><li>manopole e pomelli fuori produzione</li><li>supporti, staffe e distanziali</li><li>coperchi, gusci e alloggiamenti</li><li>agganci, guide e adattatori</li><li>plastiche interne per auto e moto</li><li>ricambi per elettrodomestici</li><li>componenti per macchinari e attrezzature</li><li>prototipi funzionali e dime</li></ul></section><div class="notice"><strong>Valutazione tecnica necessaria.</strong> Non tutti i componenti possono essere sostituiti con una stampa 3D. Sono esclusi o richiedono verifiche specifiche i pezzi strutturali, di sicurezza, sottoposti a forti carichi o temperature incompatibili con i materiali disponibili.</div>
+<section class="faq"><h2>Domande frequenti</h2><details><summary>Il pezzo è rotto: potete ricostruirlo?</summary><p>Spesso sì. Possiamo utilizzare le parti rimaste, la simmetria, le sedi di montaggio e le misure per ricostruire digitalmente le zone mancanti.</p></details><details><summary>Devo portarvi fisicamente l’oggetto?</summary><p>Dipende dalla geometria. Per una prima valutazione bastano foto nitide da più lati, una misura di riferimento e una descrizione dell’utilizzo. Operiamo da Sulmona e riceviamo anche pezzi tramite spedizione.</p></details><details><summary>Quale materiale utilizzate?</summary><p>La scelta dipende dall’uso: rigidità, urti, calore, esposizione esterna e finitura. La definiamo dopo aver analizzato il componente.</p></details><details><summary>Realizzate anche un solo pezzo?</summary><p>Sì, valutiamo sia pezzi singoli sia piccole serie.</p></details></section></main>
+<footer class="wrap">© 2026 M3DV Solution — Sulmona, Abruzzo. Spedizioni in tutta Italia.</footer></body></html>
